@@ -1,0 +1,33 @@
+@import 'config';
+@import 'mixins';
+
+.topSection {
+    padding: 1rem;
+}
+
+.title {
+    color: $font-color;
+    font-family: $font-stack;
+    font-size: 4rem;
+}
+
+.stack {
+    color: $font-color;
+    font-size: 2rem;
+}
+
+.imageContent {
+    width: $safe-width;
+}
+
+.detailsBody {
+    width: $safe-width;
+    padding: 2rem;
+    h1 {
+        color: $font-color;
+    }
+    p {
+        color: $font-color;
+        font-size: 1.5rem;
+    }
+}

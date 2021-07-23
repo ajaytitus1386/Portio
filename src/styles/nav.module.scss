@@ -1,0 +1,51 @@
+@import 'config';
+
+.navMain {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: row;
+    background-color: $primary-light-color;
+    padding: 1rem;
+}
+
+.navItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    background-color: transparent;
+    color: $font-color;
+
+    .navLogo {
+        font-size: 2rem;
+        padding: 1rem auto;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+
+        .navLink {
+            color: $font-color;
+            padding: 0.5rem;
+            margin: 1rem;
+            transition: ease-in-out 200ms;
+        }
+
+        .navLink:hover {
+            // padding: 0.5rem;
+            border-bottom: 2px solid $secondary-color;
+            color: $secondary-color;
+            // border: 3px solid $secondary-color;
+            
+        }
+    }
+}
+

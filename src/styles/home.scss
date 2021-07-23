@@ -1,0 +1,77 @@
+@import 'config'; 
+@import 'mixins';
+
+.welcome-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: auto;
+    position: absolute;
+    color: $font-color;
+    font-size: 3rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-color: transparent;
+    color: $secondary-color;
+    background: $home-gradient; 
+
+    .header-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        @include header-width();
+
+        .header-image {
+            min-height: 300px;
+            min-width: 300px;
+            // opacity: 75%;
+
+            //background-color: $secondary-color;
+        }
+    
+        .header-text {
+           
+            // position: absolute;
+            padding: 1rem;
+            color: $font-color;
+            font-family: $font-stack;
+            font-size: 1.5rem;
+            text-align: center;
+            p {
+                padding: 1rem;
+                
+            }
+
+            strong {
+                color: $secondary-color;
+            }
+
+            .sub-text {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 1000px;
+    background-color: $secondary-color;
+    background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url('../../static/BG-2.png');
+    // background-blend-mode: darken;
+    background-repeat: repeat;
+    background-position: center;
+    
+}
