@@ -3,7 +3,26 @@
 .footer {
     display: flex;
     flex-direction: row;
-    min-height: 100px;
+    justify-content: space-between;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    align-items: center;
+    min-height: 15vh;
     background-color: $primary-light-color;
-    color: $secondary-color;
+    color: $font-color;
+    font-size: 1.2rem;
+
+    .iconSet {
+        fill: $font-color;
+
+        .icon {
+            fill: $font-color;
+            border-radius: 20%;
+            padding: 0.2rem;
+        }
+    }
+}
+
+.copyright {
+    fill: $font-color;
 }
