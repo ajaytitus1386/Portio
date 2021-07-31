@@ -1,0 +1,22 @@
+@import 'config';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    width: $safe-width;
+    color: $font-color;
+
+    .text {
+        padding-top: 1rem;
+        font-size: 1rem;
+    }
+}
+
+.divider {
+    height: 3px;
+    width: 50%;
+    border-radius: 20%;
+    background-color: $primary-light-color;
+}
