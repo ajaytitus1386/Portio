@@ -1,6 +1,13 @@
 @import 'config'; 
 @import 'mixins';
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .welcome-title {
     display: flex;
     justify-content: center;
@@ -29,6 +36,8 @@
         @include header-width();
 
         .header-image {
+            border-radius: 1rem;
+            overflow: hidden;
             min-height: 300px;
             min-width: 300px;
             // opacity: 75%;
@@ -44,6 +53,7 @@
             font-family: $font-stack;
             font-size: 1.5rem;
             text-align: center;
+            
             p {
                 padding: 1rem;
                 
@@ -51,6 +61,13 @@
 
             strong {
                 color: $secondary-color;
+                font-size: 1.8rem;
+                
+            }
+
+            .sub-heading {
+                font-family: $font-heading-stack;
+                letter-spacing: 0.5rem;
             }
 
             .sub-text {
@@ -65,12 +82,13 @@
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
-    min-height: 1000px;
+    padding: 5rem;
+    min-height: 500px;
     background-color: $secondary-color;
-    background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url('../../static/BG-2.png');
-    // background-blend-mode: darken;
+    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.4));
+    // background-blend-mode: screen;
     background-repeat: repeat;
     background-position: center;
     

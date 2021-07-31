@@ -27,6 +27,18 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Portio`,
+        short_name: `Portio`,
+        start_url: `/`,
+        background_color: `#ff7f11`,
+        theme_color: `#1f5673`,
+        display: `standalone`,
+        icon : `static/logo.png`
+      },
+    },
     
   ],
   siteMetadata : {

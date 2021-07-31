@@ -6,10 +6,12 @@ import * as designDetailsStyles from '../styles/designdetails.module.scss'
 
 import { GatsbyImage,getImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
+import { motion } from 'framer-motion'
+import { tileVariants } from '../global/tileVariants'
 
 export default function DesignDetails( { data } ) {
     const { html } = data.markdownRemark
-    const { title , stack , slug , thumb } = data.markdownRemark.frontmatter
+    const { title , stack , thumb } = data.markdownRemark.frontmatter
 
     return (
         <Layout>
@@ -20,9 +22,9 @@ export default function DesignDetails( { data } ) {
                     <h2 className={designDetailsStyles.stack}>{stack}</h2>
                 </div>
                 
-                <div className={designDetailsStyles.imageContent}>
+                <motion.div className={designDetailsStyles.imageContent} variants={tileVariants} whileHover="hoverCenter">
                     <GatsbyImage image={getImage(thumb)} />
-                </div>
+                </motion.div>
 
                 <div className={designDetailsStyles.detailsBody} dangerouslySetInnerHTML={{__html : html}}/>
 

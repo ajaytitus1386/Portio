@@ -1,5 +1,6 @@
 ---
 title: The First Flame
+category: design
 stack: Photoshop
 slug: photoshop-nito
 thumb: ../../images/thumbs/Nito.png

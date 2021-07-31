@@ -1,17 +1,30 @@
 @import 'config';
 @import 'mixins';
 
+
 .grid {
     
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
 
+    @include designGrid();
+    display: flex;
+    flex-direction: column;
 
     .tile {
         margin: 1rem;
         color: $font-color;
         font-family: $font-stack;
+        border-radius: 1rem;
+        overflow: hidden;
+        max-width: 30rem;
+        .tileImage {
+            border-radius: 1rem;
+        }
+
+        .tileInfo {
+            position: absolute;
+            z-index: 2;
+            padding: 1rem;
+            
+        }
     }
 }

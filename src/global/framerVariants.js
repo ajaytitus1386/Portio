@@ -22,12 +22,16 @@ const headerImageVariants = {
     opacity: 0,
   },
   visible : {
-    opacity : 1,
+    opacity : 0.75,
     transition : {
       type : "easeInOut",
       delay : 0.2,
       duration : 0.5,
     },
+  },
+  hover : {
+    scale : 1.05,
+    opacity : 1
   },
 
 }
