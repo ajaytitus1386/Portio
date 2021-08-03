@@ -44,7 +44,7 @@ export default function DesignHome({ data }) {
             </motion.div>
             <div  className="header-text">
             <p>Welcome to the  <strong className="sub-heading">Design Section</strong></p>
-              <p className="sub-text">Below you'll find graphical, artisitc and design based projects.</p>
+              <p className="sub-text">Below you'll find graphical, artisitc and design based projects .</p>
               <p></p>
             </div>
 
