@@ -1,7 +1,38 @@
 @import 'config';
 
-@mixin nav-bg() {
-    
+// @mixin for_breakpoint($breakpoints) {
+//     $conditions : ();
+//     @each $breakpoint in $breakpoints {
+//         // If the key exists in the map
+//         $conditions: append(
+//             $conditions,
+//             #{inspect(map-get($media_queries, $breakpoint))},
+//             comma
+//         );
+//     }
+
+//     @media #{$conditions} {
+//         @content;
+//     }
+
+// }
+
+@mixin mobile {
+    @media (max-width : #{$mobile_width}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (min-width: $mobile_width) and (max-width : $desktop_width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width : $desktop-width) {
+        @content;
+    }
 }
 
 @mixin header-width(){
