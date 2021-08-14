@@ -1,9 +1,13 @@
 import React, { useState} from "react"
 import Layout from "../../components/Layout"
 import Navbar from "../../components/Navbar"
+import SectionHeading from "../../components/SectionHeading"
+import DesignTile from "../../components/DesignTile"
+
 import { motion, AnimatePresence } from 'framer-motion'
 import {headerVariants, headerImageVariants} from '../../global/framerVariants'
 import { tileVariants } from "../../global/tileVariants"
+
 import '../../styles/global.scss'
 import '../../styles/home.scss'
 import * as designStyles from '../../styles/designhome.module.scss'
@@ -15,6 +19,8 @@ export default function DesignHome({ data }) {
   const [showHeader, setShowHeader] = useState(true);
 
   const designs = data.designs.nodes
+  const psDesigns = data.psDesigns.nodes
+  const aiDesigns = data.aiDesigns.nodes
 
   let animationDelay = 1
 
@@ -57,7 +63,9 @@ export default function DesignHome({ data }) {
         </AnimatePresence>
         <Navbar />
         <div className="main">
-          
+
+          <SectionHeading headingText={"Featured"}/>
+
           <div className={designStyles.grid}>
             {designs.map(design => (
               
@@ -75,6 +83,12 @@ export default function DesignHome({ data }) {
               </Link>
             ))}
           </div>
+          
+          <SectionHeading headingText={"Photoshop"}/>  
+              <DesignTile nodes={psDesigns}/>
+
+          <SectionHeading headingText={"Illustrator"}/>
+              <DesignTile nodes={aiDesigns} />
 
         </div>
     </Layout>
@@ -84,7 +98,7 @@ export default function DesignHome({ data }) {
 //export query for all files
 export const query = graphql`
 query DesignPage {
-  designs : allMarkdownRemark(filter: {frontmatter: {category: {eq: "design"}}}) {
+  designs : allMarkdownRemark(filter: {frontmatter: {category: {eq: "design"}, featureOnCategory: {eq: true}}}) {
     nodes {
       frontmatter {
         category
@@ -101,6 +115,43 @@ query DesignPage {
       html
     }
   }
+
+  psDesigns : allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "design"}, stack: {eq: "Photoshop"}}}
+  ) {
+    nodes {
+      frontmatter {
+        category
+        slug
+        stack
+        title
+        thumb {
+          childImageSharp {
+            gatsbyImageData(width: 640, height: 360)
+          }
+        }
+      }
+    }
+  }
+
+  aiDesigns : allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "design"}, stack: {eq: "Illustrator"}}}
+  ) {
+    nodes {
+      frontmatter {
+        category
+        slug
+        stack
+        title
+        thumb {
+          childImageSharp {
+            gatsbyImageData(width: 640, height: 360)
+          }
+        }
+      }
+    }
+  }
+
   file(relativePath: {eq: "MoonAndCliff.png"}) {
     childImageSharp {
       gatsbyImageData(width: 1920, height:1080)
