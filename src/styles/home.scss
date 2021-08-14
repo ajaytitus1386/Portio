@@ -15,7 +15,8 @@
     z-index: auto;
     position: absolute;
     color: $font-color;
-    font-size: 3 * $font-size-global;
+    font-family: $font-mono-stack; 
+    font-size: 4 * $font-size-global;
 }
 
 .header {
@@ -101,9 +102,34 @@
     padding: 5rem;
     min-height: 500px;
     background-color: $secondary-color;
-    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.4));
+    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.2));
+    // background-image: linear-gradient(180deg, rgba(49,139,187,1) 0%, rgba(49,139,187,0) 25%);
     // background-blend-mode: screen;
     background-repeat: repeat;
     background-position: center;
     
+}
+
+.sectionHeading {
+    font-family: $font-heading-stack;
+    font-size: 3 * $font-size-global;
+    color: $font-color;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    transition: ease-in-out 200ms;
+}
+
+.sectionHeading:hover {
+    letter-spacing: 0.3rem;
+    transform: scale(1.1);   
+}
+
+.divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 50%;
+    height: 0.2rem;
+    width: 50vw;
+    border-radius: 1rem;
+    background-color: $primary-light-color;
 }

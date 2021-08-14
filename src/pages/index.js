@@ -1,16 +1,21 @@
 import React, {useState} from "react"
 import Layout from "../components/Layout"
 import Navbar from "../components/Navbar"
-import { motion, AnimatePresence } from 'framer-motion'
-import {headerImageVariants, headerVariants} from '../global/framerVariants'
-import { graphql } from "gatsby"
+import SectionHeading from "../components/SectionHeading"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage,getImage } from 'gatsby-plugin-image'
+
+
+import { motion, AnimatePresence } from 'framer-motion'
 import TextLoop from 'react-text-loop'
 import parse from 'html-react-parser'
 
 import '../styles/global.scss'
 import '../styles/home.scss'
 import * as homeStyles from '../styles/home.module.scss'
+import {headerImageVariants, headerVariants} from '../global/framerVariants'
+import { tileVariants } from "../global/tileVariants"
+
 
 const welcomeVariants = {
   hidden : {
@@ -38,6 +43,10 @@ export default function Home({ data }) {
   const [showHeader, setShowHeader] = useState(true);
 
   const projects = data.projects.nodes
+
+  const featuredDesigns = data.featuredDesigns.nodes
+
+  console.log('gy',featuredDesigns.size)
   setTimeout(()=>{
     setShowWelcome(false);
   },2800)
@@ -106,11 +115,14 @@ export default function Home({ data }) {
         )}
         </AnimatePresence>
         <Navbar />
-        <div className="main">
+        <motion.div className="main">
           <div className="container">
+
+            <SectionHeading headingText={"Featured"}/>  
+
             {projects.map(project => (
                <div className={homeStyles.card}>
-                 <motion.div className={homeStyles.tile} initial={{scale : 0.9}} transition={{type: "tween",duration : 0.2}} whileHover={{scale : 1.0, y: -20}}>
+                 <motion.div className={homeStyles.tile} variants={tileVariants} initial="initial" animate="visible" whileHover="hover">
                     <div className={homeStyles.tileInfo}>
                       <h2>{project.frontmatter.title}</h2>
                       <h3>{project.frontmatter.stack}</h3>
@@ -124,8 +136,29 @@ export default function Home({ data }) {
                   </div>
                </div>
             ))}
+
+            {featuredDesigns.map(featuredDesign => (
+              <Link className={homeStyles.card} to={"/design/" + featuredDesign.frontmatter.slug} key={featuredDesign.id}>
+               
+                 <motion.div className={homeStyles.tile} variants={tileVariants} initial="initial" animate="visible" whileHover="hover">
+                    <div className={homeStyles.tileInfo}>
+                      
+                    </div>
+                    <div className={homeStyles.tileImage}>
+                      <GatsbyImage image={getImage(featuredDesign.frontmatter.thumb)} alt={featuredDesign.frontmatter.title}/>
+                    </div>
+                  </motion.div>
+                  <div className={homeStyles.markdown}>
+                    <h1>{featuredDesign.frontmatter.title}</h1>
+                    <h3>{featuredDesign.frontmatter.stack}</h3>
+                    {parse(featuredDesign.html)}
+                  </div>
+
+              </Link>
+            ))}
+            
           </div>
-        </div>
+        </motion.div>
     </Layout>
   )
 }
@@ -138,6 +171,24 @@ query HomePage {
     }
   }
   projects : allMarkdownRemark(filter: {frontmatter: {category: {eq: "home"}}}) {
+    nodes {
+      frontmatter {
+        category
+        slug
+        stack
+        title
+        thumb {
+          childImageSharp {
+            gatsbyImageData(width: 640, height: 360)
+          }
+        }
+      }
+      id
+      html
+    }
+  }
+
+  featuredDesigns : allMarkdownRemark(filter: {frontmatter: {featureOnHome: {eq: true}}}) {
     nodes {
       frontmatter {
         category
