@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap');
 
 $desktop_width : 1024px;
 $tablet_width : 768px;
@@ -16,15 +17,27 @@ $mobile_width : 640px;
 // );
 
 
-
+//Colors
 $primary-color : #1f5673;
 $secondary-color : #ff7f11;
 $primary-light-color : rgba(49,139,187,1);
 $primary-light-color-50 : rgba(49,139,187,0.5);
+$home-gradient : linear-gradient(360deg, rgba(49,139,187,1) 25%, rgba(31,86,115,1) 100%);
+
+//Fonts
 $font-stack : 'Work Sans', sans-serif;
 $font-heading-stack : 'Staatliches', cursive;
 $font-color : white;
+$font-mono-stack : 'Oxygen Mono', monospace;
 
+$font-map : (
+    1: $font-stack,
+    2: $font-heading-stack ,
+    3: $font-mono-stack,
+);
+// map-get($map: $font-map, $key: random($limit: 3))
+
+//Constants
 $safe-width : 75%;
 
 $font-size-global : 1vw; //default
@@ -43,4 +56,3 @@ $font-size-global : 1vw; //default
 //     $font-color : red
 // }
 
-$home-gradient : linear-gradient(360deg, rgba(49,139,187,1) 25%, rgba(31,86,115,1) 100%);

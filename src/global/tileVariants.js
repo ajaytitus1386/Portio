@@ -6,18 +6,21 @@ const tileVariants = {
     visible : {
         opacity : 1,
         transition : {
-            type: "easeInOut",
-            delay: 1,
+            type : "tween",
+            ease: "easeInOut",
+            duration : 2,
         },
+        
     },
     hover : {
         boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.2)",
-        scale : 1.08,
+        scale : 1.05,
         y: -20
     },
     hoverCenter : {
         boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.2)",
         scale : 1.08,
+        
     }
 }
 

@@ -36,5 +36,11 @@ const headerImageVariants = {
 
 }
 
-export { headerVariants, headerImageVariants };
+const mainVariants = {
+  initial : {
+
+  }
+}
+
+export { headerVariants, headerImageVariants, mainVariants };
 

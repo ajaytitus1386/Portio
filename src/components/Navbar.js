@@ -48,6 +48,9 @@ export default function Navbar() {
                     <motion.li variants={linkVariants} initial="initial" whileHover="hover">
                         <Link className={navStyles.navLink} to="/design">Design</Link>
                     </motion.li>
+                    <motion.li variants={linkVariants} initial="initial" whileHover="hover">
+                        <Link className={navStyles.navLink} to="/tech">Tech</Link>
+                    </motion.li>
 
                 </ul>
             </div>
