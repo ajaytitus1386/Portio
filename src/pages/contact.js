@@ -6,8 +6,8 @@ import { motion } from 'framer-motion'
 
 import '../styles/home.scss'
 import * as contactStyles from '../styles/contact.module.scss'
-import github from '../images/icons/iconmonstr-github-1-240.png'
-import dribbble from '../images/icons/iconmonstr-dribbble-1.svg'
+// import github from '../images/icons/iconmonstr-github-1-240.png'
+// import dribbble from '../images/icons/iconmonstr-dribbble-1.svg'
 
 const headingVariants = {
     hidden : {

@@ -2,14 +2,14 @@ import React, { useState} from "react"
 import Layout from "../../components/Layout"
 import Navbar from "../../components/Navbar"
 import SectionHeading from "../../components/SectionHeading"
-import DesignTile from "../../components/DesignTile"
+
 
 import { motion, AnimatePresence } from 'framer-motion'
 import {headerVariants, headerImageVariants} from '../../global/framerVariants'
-import { tileVariants } from "../../global/tileVariants"
+// import { tileVariants } from "../../global/tileVariants"
 
-import { graphql,Link } from "gatsby"
-import { GatsbyImage,getImage } from 'gatsby-plugin-image'
+// import { graphql,Link } from "gatsby"
+// import { GatsbyImage,getImage } from 'gatsby-plugin-image'
 
 export default function TechHome() {
 
@@ -40,7 +40,7 @@ export default function TechHome() {
                 </motion.div> */}
                 <div  className="header-text">
                 <p>Welcome to the  <strong className="sub-heading">Tech Section</strong></p>
-                    <p className="sub-text">Heres where anything pertaining to tech, coding and contemporary projects in the modern world.</p>
+                    <p className="sub-text">A place dedicated to tech, coding and contemporary projects in the modern world.</p>
                     <p></p>
                 </div>
 

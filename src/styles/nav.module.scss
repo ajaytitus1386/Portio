@@ -33,6 +33,11 @@
     background-color: transparent;
     color: $font-color;
 
+    @include mobile{
+        width: 100%;
+    }
+
+
     .navLogo {
         font-size: 2rem;
         padding: 1rem auto;

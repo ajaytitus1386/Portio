@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
 
 import { GatsbyImage,getImage } from 'gatsby-plugin-image'
-import {headerVariants, headerImageVariants} from '../global/framerVariants'
 import { tileVariants } from "../global/tileVariants"
 import * as designStyles from '../styles/designhome.module.scss'
 

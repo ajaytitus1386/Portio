@@ -3,7 +3,6 @@ import React from 'react'
 import { motion,AnimatePresence } from 'framer-motion'
 
 import * as layoutStyles from '../styles/layout.module.scss'
-import { Link } from 'gatsby'
 export default function Layout({children}) {
     return (
         <AnimatePresence>
