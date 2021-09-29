@@ -53,7 +53,10 @@ export default function Home({ data }) {
   // };
 
   function isMobile() {
-    let a = false;
+    let isMobile = false;
+    if(typeof window == 'undefined'){ 
+       return false
+      }
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i) 
@@ -61,11 +64,11 @@ export default function Home({ data }) {
         || navigator.userAgent.match(/iPod/i)
         || navigator.userAgent.match(/BlackBerry/i)
         || navigator.userAgent.match(/Windows Phone/i)) {
-        a = true;
+        isMobile = true;
     } else {
-        a = false;
+        isMobile = false;
     }
-    return a;
+    return isMobile;
     
 }
   
