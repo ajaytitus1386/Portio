@@ -19,6 +19,23 @@
     font-size: 4 * $font-size-global;
 }
 
+.mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: $home-gradient; 
+
+    .mobile-text{
+        padding: 1rem;
+        color: $font-color;
+        font-family: $font-stack;
+        font-size: 4 * $font-size-global;
+        text-align: center;
+    }
+}
+
 .header {
     display: flex;
     flex-direction: row;

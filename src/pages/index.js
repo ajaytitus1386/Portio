@@ -79,8 +79,8 @@ export default function Home({ data }) {
 
   return isMobile() ? ( //If mobile browser
   <Layout>
-    <div className="header">
-      <div className="header-text">
+    <div className="mobile">
+      <div className="mobile-text">
         <p>
           <strong>Sorry, but this site is not yet mobile friendly! </strong> 
         </p>
