@@ -1,46 +1,43 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Navbar from "../components/Navbar"
 import SectionHeading from "../components/SectionHeading"
 import { graphql, Link } from "gatsby"
-import { GatsbyImage,getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { motion, AnimatePresence } from "framer-motion"
+import TextLoop from "react-text-loop"
+import parse from "html-react-parser"
 
-import { motion, AnimatePresence } from 'framer-motion'
-import TextLoop from 'react-text-loop'
-import parse from 'html-react-parser'
-
-import '../styles/global.scss'
-import '../styles/home.scss'
-import * as homeStyles from '../styles/home.module.scss'
-import {headerImageVariants, headerVariants} from '../global/framerVariants'
+import "../styles/global.scss"
+import "../styles/home.scss"
+import * as homeStyles from "../styles/home.module.scss"
+import { headerImageVariants, headerVariants } from "../global/framerVariants"
 import { tileVariants } from "../global/tileVariants"
 
-
 const welcomeVariants = {
-  hidden : {
-    scale:0,
+  hidden: {
+    scale: 0,
   },
   visible: {
     scale: 1,
-    transition : {
-      type:"spring",
-      damping:20,
-      stiffness:260,
-      duration:3,
-    }
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 260,
+      duration: 3,
+    },
   },
-  exit : {
-    scale:0
-  }
+  exit: {
+    scale: 0,
+  },
 }
-
 
 export default function Home({ data }) {
   //Home( { data })
   // const {title, desc, copy} = data.site.siteMetadata
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [showHeader, setShowHeader] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true)
+  const [showHeader, setShowHeader] = useState(true)
 
   const projects = data.projects.nodes
 
@@ -53,193 +50,229 @@ export default function Home({ data }) {
   // };
 
   function isMobile() {
-    let isMobile = false;
-    if(typeof window == 'undefined'){ 
-       return false
-      }
-    if (navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i) 
-        || navigator.userAgent.match(/iPad/i) 
-        || navigator.userAgent.match(/iPod/i)
-        || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i)) {
-        isMobile = true;
-    } else {
-        isMobile = false;
+    let isMobile = false
+    if (typeof window == "undefined") {
+      return false
     }
-    return isMobile;
-    
-}
-  
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      isMobile = true
+    } else {
+      isMobile = false
+    }
+    return isMobile
+  }
 
-  setTimeout(()=>{
-    setShowWelcome(false);
-  },2800)
+  setTimeout(() => {
+    setShowWelcome(false)
+  }, 2800)
 
   return isMobile() ? ( //If mobile browser
-  <Layout>
-    <div className="mobile">
-      <div className="mobile-text">
-        <p>
-          <strong>Sorry, but this site is not yet mobile friendly! </strong> 
-        </p>
+    <Layout>
+      <div className="mobile">
+        <div className="mobile-text">
+          <p>
+            <strong>Sorry, but this site is not yet mobile friendly! </strong>
+          </p>
+        </div>
       </div>
-    </div>
-  </Layout>) 
-  : ( //Else if not mobile browser
+    </Layout>
+  ) : (
+    //Else if not mobile browser
     <Layout>
       <AnimatePresence>
-        
         {showHeader && (
-
           <motion.div
-          variants={headerVariants} 
-          initial="hidden" 
-          animate="visible"
-          exit="exit"
-          className="header"
+            variants={headerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="header"
           >
+            <AnimatePresence>
+              {showWelcome && (
+                <motion.div
+                  variants={welcomeVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="welcome-title"
+                >
+                  <h1>Welcome</h1>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-          <AnimatePresence>
-            {showWelcome && (
-              <motion.div 
-              variants={welcomeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="welcome-title"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                type: "spring",
+                duration: 2,
+                damping: 20,
+                stiffness: 260,
+                delay: 3,
+              }}
+              className="header-items"
+            >
+              <motion.div
+                variants={headerImageVariants}
+                initial="visible"
+                whileHover="hover"
+                className="header-image"
               >
-                <h1>Welcome</h1>
+                <GatsbyImage image={getImage(data.file)} alt="Front" />
               </motion.div>
-            )}
-          </AnimatePresence>
-
-          <motion.div 
-          initial={{opacity:0}} 
-          animate={{opacity:1}} 
-          transition={{type:"spring",duration:2,damping:20,stiffness:260,delay:3}} 
-          className="header-items"
-          >
-           
-            <motion.div variants={headerImageVariants} initial="visible" whileHover="hover" className="header-image">
-              <GatsbyImage image={getImage(data.file)} alt="Front"/>
-            </motion.div>
-            <div className="header-text">
-              <p>
-                Hello There,
-                <br/>
-                I'm <strong>Ajay Titus</strong>
-                <br/> 
-                an aspiring enthusiast of 
-                <br/>
-                <TextLoop interval={2000} delay={3000} springConfig={{ stiffness: 240, damping: 15 }}>
-                  <strong>web dev</strong>
-                  <strong>design</strong>
-                  <strong>music </strong>
-                </TextLoop>
-                <br/>
-                 and much more.
+              <div className="header-text">
+                <p>
+                  Hello There,
+                  <br />
+                  I'm <strong>Ajay Titus</strong>
+                  <br />
+                  an aspiring enthusiast of
+                  <br />
+                  <TextLoop
+                    interval={2000}
+                    delay={3000}
+                    springConfig={{ stiffness: 240, damping: 15 }}
+                  >
+                    <strong>web dev</strong>
+                    <strong>design</strong>
+                    <strong>music </strong>
+                    <strong>mobile dev </strong>
+                  </TextLoop>
+                  <br />
+                  and much more.
                 </p>
-              <p className="sub-text">Below you'll find some of the significant projects I've worked on.</p>
-              <p></p>
-            </div>
-
+                <p className="sub-text">
+                  Below you'll find some of the significant projects I've worked
+                  on.
+                </p>
+                <p></p>
+              </div>
+            </motion.div>
           </motion.div>
-
-        </motion.div>
         )}
-        </AnimatePresence>
-        <Navbar />
-        <motion.div className="main">
-          <div className="container">
+      </AnimatePresence>
+      <Navbar />
+      <motion.div className="main">
+        <div className="container">
+          <SectionHeading headingText={"Education"} />
 
-            <SectionHeading headingText={"Featured"}/>  
+          <SectionHeading headingText={"Skills"} />
 
-            {projects.map(project => (
-               <div className={homeStyles.card}>
-                 <motion.div className={homeStyles.tile} variants={tileVariants} initial="initial" animate="visible" whileHover="hover">
-                    <div className={homeStyles.tileInfo}>
-                      <h2>{project.frontmatter.title}</h2>
-                      <h3>{project.frontmatter.stack}</h3>
-                    </div>
-                    <div className={homeStyles.tileImage}>
-                      <GatsbyImage image={getImage(project.frontmatter.thumb)} alt={project.frontmatter.title}/>
-                    </div>
-                  </motion.div>
-                  <div className={homeStyles.markdown}>
-                    {parse(project.html)}
-                  </div>
-               </div>
-            ))}
+          <SectionHeading headingText={"Featured"} />
 
-            {featuredDesigns.map(featuredDesign => (
-              <Link className={homeStyles.card} to={"/design/" + featuredDesign.frontmatter.slug} key={featuredDesign.id}>
-               
-                 <motion.div className={homeStyles.tile} variants={tileVariants} initial="initial" animate="visible" whileHover="hover">
-                    <div className={homeStyles.tileInfo}>
-                      
-                    </div>
-                    <div className={homeStyles.tileImage}>
-                      <GatsbyImage image={getImage(featuredDesign.frontmatter.thumb)} alt={featuredDesign.frontmatter.title}/>
-                    </div>
-                  </motion.div>
-                  <div className={homeStyles.markdown}>
-                    <h1>{featuredDesign.frontmatter.title}</h1>
-                    <h3>{featuredDesign.frontmatter.stack}</h3>
-                    {parse(featuredDesign.html)}
-                  </div>
+          {projects.map(project => (
+            <div className={homeStyles.card}>
+              <motion.div
+                className={homeStyles.tile}
+                variants={tileVariants}
+                initial="initial"
+                animate="visible"
+                whileHover="hover"
+              >
+                <div className={homeStyles.tileInfo}>
+                  <h2>{project.frontmatter.title}</h2>
+                  <h3>{project.frontmatter.stack}</h3>
+                </div>
+                <div className={homeStyles.tileImage}>
+                  <GatsbyImage
+                    image={getImage(project.frontmatter.thumb)}
+                    alt={project.frontmatter.title}
+                  />
+                </div>
+              </motion.div>
+              <div className={homeStyles.markdown}>{parse(project.html)}</div>
+            </div>
+          ))}
 
-              </Link>
-            ))}
-            
-          </div>
-        </motion.div>
+          {featuredDesigns.map(featuredDesign => (
+            <Link
+              className={homeStyles.card}
+              to={"/design/" + featuredDesign.frontmatter.slug}
+              key={featuredDesign.id}
+            >
+              <motion.div
+                className={homeStyles.tile}
+                variants={tileVariants}
+                initial="initial"
+                animate="visible"
+                whileHover="hover"
+              >
+                <div className={homeStyles.tileInfo}></div>
+                <div className={homeStyles.tileImage}>
+                  <GatsbyImage
+                    image={getImage(featuredDesign.frontmatter.thumb)}
+                    alt={featuredDesign.frontmatter.title}
+                  />
+                </div>
+              </motion.div>
+              <div className={homeStyles.markdown}>
+                <h1>{featuredDesign.frontmatter.title}</h1>
+                <h3>{featuredDesign.frontmatter.stack}</h3>
+                {parse(featuredDesign.html)}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </motion.div>
     </Layout>
   )
 }
 
 export const query = graphql`
-query HomePage {
-  file(relativePath: {eq: "front.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 1920, height: 1080)
+  query HomePage {
+    file(relativePath: { eq: "front.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 1920, height: 1080)
+      }
     }
-  }
-  projects : allMarkdownRemark(filter: {frontmatter: {category: {eq: "home"}}}) {
-    nodes {
-      frontmatter {
-        category
-        slug
-        stack
-        title
-        thumb {
-          childImageSharp {
-            gatsbyImageData(width: 640, height: 360)
+    projects: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "home" } } }
+    ) {
+      nodes {
+        frontmatter {
+          category
+          slug
+          stack
+          title
+          thumb {
+            childImageSharp {
+              gatsbyImageData(width: 640, height: 360)
+            }
           }
         }
+        id
+        html
       }
-      id
-      html
     }
-  }
 
-  featuredDesigns : allMarkdownRemark(filter: {frontmatter: {featureOnHome: {eq: true}}}) {
-    nodes {
-      frontmatter {
-        category
-        slug
-        stack
-        title
-        thumb {
-          childImageSharp {
-            gatsbyImageData(width: 640, height: 360)
+    featuredDesigns: allMarkdownRemark(
+      filter: { frontmatter: { featureOnHome: { eq: true } } }
+    ) {
+      nodes {
+        frontmatter {
+          category
+          slug
+          stack
+          title
+          thumb {
+            childImageSharp {
+              gatsbyImageData(width: 640, height: 360)
+            }
           }
         }
+        id
+        html
       }
-      id
-      html
     }
   }
-}
 `
