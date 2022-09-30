@@ -1,6 +1,11 @@
 @import 'config';
 @import 'mixins';
 
+.urlActive {
+    cursor: pointer;
+
+}
+
 .tile {
     margin: 1rem;
     color: $font-color;
@@ -20,12 +25,15 @@
     }
 }
 
+
+
 .card {
     display: flex;
     flex-direction: row;
     width: $safe-width;
-    // background-color: $primary-light-color-50;
-    // border-radius: 1rem;
+    border-radius: 2rem;
+    transition: all 300ms ease-in-out;
+
     .markdown {
         width: 50%;
         display: flex;
@@ -36,4 +44,8 @@
 
         
     }
+}
+
+.card:hover {
+    background-color: $light-bg-color;
 }
