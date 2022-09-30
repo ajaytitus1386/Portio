@@ -28,7 +28,9 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-text-loop": "^2.3.0",
-    "sass": "^1.55.0"
+    "react-tsparticles": "^2.3.2",
+    "sass": "^1.55.0",
+    "tsparticles": "^2.3.2"
   },
   "devDependencies": {
     "prettier": "2.3.2"
