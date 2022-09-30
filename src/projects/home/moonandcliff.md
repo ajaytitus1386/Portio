@@ -1,9 +1,10 @@
 ---
 title: Moon and Cliff
-category: design
+category: home
 stack: Photoshop
 slug: photoshop-mooncliff
 thumb: ../../images/thumbs/MoonAndCliff.png
+url: https://dribbble.com/shots/16165586-Moon-and-Cliff
 featureOnHome: false
 featureOnCategory: true
 ---
@@ -17,8 +18,4 @@ A cloaked individual overlooking a cliff edge with a moon and a distant planet o
 
 &nbsp;
 
-# Check Out
 
-&nbsp;
-
-**Dribbble Link** : [`https://dribbble.com/shots/16165586-Moon-and-Cliff`](https://dribbble.com/shots/16165586-Moon-and-Cliff)
