@@ -1,6 +1,4 @@
 import React from 'react'
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
 
 import { motion } from 'framer-motion'
 
@@ -91,8 +89,7 @@ const iconChildrenVariants = {
 
 export default function Contact() {
     return (
-        <Layout>
-        <Navbar />       
+        
         <div className="main">
             <div className={contactStyles.container}>
                 <motion.h1 className={contactStyles.heading} variants={headingVariants} initial="hidden" animate="show" whileHover="hover">
@@ -153,6 +150,6 @@ export default function Contact() {
                 
             </div>
         </div>
-        </Layout>
+       
     )
 }
