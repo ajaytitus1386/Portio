@@ -6,7 +6,9 @@
 
 # Welcome to the repo of Portio
 
-This is a personal portfolio site built using Gatsby, GraphQL and Sass which holds information on a plethora of projects spearheaded and contributions made by yours truly. 
+This is a personal portfolio site built using Gatsby, GraphQL and Sass which holds information on a plethora of projects spearheaded and contributions made by yours truly.
+
+**Check out the deployed build at:** [Vercel](https://portio-eight.vercel.app/)
 
 ## 🚀 Quick start
 
