@@ -1,19 +1,19 @@
 import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Navbar from "../components/Navbar"
-import SectionHeading from "../components/SectionHeading"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { motion, AnimatePresence } from "framer-motion"
 import TextLoop from "react-text-loop"
-import parse from "html-react-parser"
 
 import "../styles/global.scss"
 import "../styles/home.scss"
-import * as homeStyles from "../styles/home.module.scss"
+
 import { headerImageVariants, headerVariants } from "../global/framerVariants"
-import { tileVariants } from "../global/tileVariants"
+
+import ProjectCard from "../components/ProjectCard"
+import FlexGrid from "../components/FlexGrid"
 
 const welcomeVariants = {
   hidden: {
@@ -40,8 +40,6 @@ export default function Home({ data }) {
   const [showHeader, setShowHeader] = useState(true)
 
   const projects = data.projects.nodes
-
-  const featuredDesigns = data.featuredDesigns.nodes
 
   // window.mobileCheck = function() {
   //   let check = false;
@@ -143,10 +141,10 @@ export default function Home({ data }) {
                     delay={3000}
                     springConfig={{ stiffness: 240, damping: 15 }}
                   >
-                    <strong>web dev</strong>
-                    <strong>design</strong>
-                    <strong>music </strong>
-                    <strong>mobile dev </strong>
+                    <strong>FRONTEND</strong>
+                    <strong>DESIGN</strong>
+                    <strong>MUSIC</strong>
+                    <strong>SOFTWARE DEV</strong>
                   </TextLoop>
                   <br />
                   and much more.
@@ -163,64 +161,11 @@ export default function Home({ data }) {
       </AnimatePresence>
       <Navbar />
       <motion.div className="main">
+        <FlexGrid />
+
         <div className="container">
-          <SectionHeading headingText={"Education"} />
-
-          <SectionHeading headingText={"Skills"} />
-
-          <SectionHeading headingText={"Featured"} />
-
           {projects.map(project => (
-            <div className={homeStyles.card}>
-              <motion.div
-                className={homeStyles.tile}
-                variants={tileVariants}
-                initial="initial"
-                animate="visible"
-                whileHover="hover"
-              >
-                <div className={homeStyles.tileInfo}>
-                  <h2>{project.frontmatter.title}</h2>
-                  <h3>{project.frontmatter.stack}</h3>
-                </div>
-                <div className={homeStyles.tileImage}>
-                  <GatsbyImage
-                    image={getImage(project.frontmatter.thumb)}
-                    alt={project.frontmatter.title}
-                  />
-                </div>
-              </motion.div>
-              <div className={homeStyles.markdown}>{parse(project.html)}</div>
-            </div>
-          ))}
-
-          {featuredDesigns.map(featuredDesign => (
-            <Link
-              className={homeStyles.card}
-              to={"/design/" + featuredDesign.frontmatter.slug}
-              key={featuredDesign.id}
-            >
-              <motion.div
-                className={homeStyles.tile}
-                variants={tileVariants}
-                initial="initial"
-                animate="visible"
-                whileHover="hover"
-              >
-                <div className={homeStyles.tileInfo}></div>
-                <div className={homeStyles.tileImage}>
-                  <GatsbyImage
-                    image={getImage(featuredDesign.frontmatter.thumb)}
-                    alt={featuredDesign.frontmatter.title}
-                  />
-                </div>
-              </motion.div>
-              <div className={homeStyles.markdown}>
-                <h1>{featuredDesign.frontmatter.title}</h1>
-                <h3>{featuredDesign.frontmatter.stack}</h3>
-                {parse(featuredDesign.html)}
-              </div>
-            </Link>
+            <ProjectCard project={project} />
           ))}
         </div>
       </motion.div>
@@ -243,26 +188,7 @@ export const query = graphql`
           category
           slug
           stack
-          title
-          thumb {
-            childImageSharp {
-              gatsbyImageData(width: 640, height: 360)
-            }
-          }
-        }
-        id
-        html
-      }
-    }
-
-    featuredDesigns: allMarkdownRemark(
-      filter: { frontmatter: { featureOnHome: { eq: true } } }
-    ) {
-      nodes {
-        frontmatter {
-          category
-          slug
-          stack
+          url
           title
           thumb {
             childImageSharp {
