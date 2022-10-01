@@ -39,6 +39,14 @@ module.exports = {
         icon : `static/logo.png`
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+      rule: {
+        include: /svg/
+      }
+  }
+    }
     
   ],
   siteMetadata : {
