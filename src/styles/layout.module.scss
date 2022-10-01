@@ -1,5 +1,16 @@
 @import 'config';
 
+.content {
+    position: relative;
+    overflow: hidden;
+
+    .particles {
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+    }
+}
+
 .footer {
     display: flex;
     flex-direction: row;
@@ -11,6 +22,8 @@
     background-color: $primary-light-color;
     color: $font-color;
     font-size: 1.2rem;
+    z-index: 10;
+    position: relative;
 
     .iconSet {
         fill: $font-color;
