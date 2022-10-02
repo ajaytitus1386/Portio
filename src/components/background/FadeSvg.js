@@ -19,10 +19,11 @@ const icon = {
 
 function FadeSvg({ path }) {
   const controls = useAnimation()
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  })
 
   useEffect(() => {
-    console.log("Change In view" + inView)
     if (inView) controls.start("visible")
     //if (!inView) controls.start("hidden")
   }, [controls, inView])

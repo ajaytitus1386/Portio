@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-@import 'config';
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import "config";
 
 * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: $font-stack;
-    
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: $font-stack;
 }
 
-html,body {
-    min-height: 100%;
+html,
+body {
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: $primary-color;
+  background-color: $primary-color;
 }
-

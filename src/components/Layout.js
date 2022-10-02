@@ -11,17 +11,14 @@ import * as layoutStyles from "../styles/layout.module.scss"
 
 export default function Layout({ children }) {
   const particlesInit = useCallback(async engine => {
-    
     await loadFull(engine)
   }, [])
 
-  const particlesLoaded = useCallback(async container => {
-    
-  }, [])
+  const particlesLoaded = useCallback(async container => {}, [])
 
   return (
     <AnimatePresence>
-      <div className={layoutStyles.layout}>
+      <div>
         <title>Ajay Titus</title>
         {/* Makes anchor tags open a new tab when clicked */}
         <base target="_blank"></base>
