@@ -1,43 +1,21 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/Layout"
 import Navbar from "../components/Navbar"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import { motion, AnimatePresence } from "framer-motion"
-import TextLoop from "react-text-loop"
+import { motion } from "framer-motion"
 
 import "../styles/global.scss"
 import "../styles/home.scss"
 
-import { headerImageVariants, headerVariants } from "../global/framerVariants"
-
 import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
-
-const welcomeVariants = {
-  hidden: {
-    scale: 0,
-  },
-  visible: {
-    scale: 1,
-    transition: {
-      type: "spring",
-      damping: 20,
-      stiffness: 260,
-      duration: 3,
-    },
-  },
-  exit: {
-    scale: 0,
-  },
-}
+import Header from "../components/Header"
+import Contact from "../components/contact"
 
 export default function Home({ data }) {
   //Home( { data })
   // const {title, desc, copy} = data.site.siteMetadata
-  const [showWelcome, setShowWelcome] = useState(true)
-  const [showHeader, setShowHeader] = useState(true)
 
   const projects = data.projects.nodes
 
@@ -68,10 +46,6 @@ export default function Home({ data }) {
     return isMobile
   }
 
-  setTimeout(() => {
-    setShowWelcome(false)
-  }, 2800)
-
   return isMobile() ? ( //If mobile browser
     <Layout>
       <div className="mobile">
@@ -85,80 +59,7 @@ export default function Home({ data }) {
   ) : (
     //Else if not mobile browser
     <Layout>
-      <AnimatePresence>
-        {showHeader && (
-          <motion.div
-            variants={headerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="header"
-          >
-            <AnimatePresence>
-              {showWelcome && (
-                <motion.div
-                  variants={welcomeVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="welcome-title"
-                >
-                  <h1>Welcome</h1>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                type: "spring",
-                duration: 2,
-                damping: 20,
-                stiffness: 260,
-                delay: 3,
-              }}
-              className="header-items"
-            >
-              <motion.div
-                variants={headerImageVariants}
-                initial="visible"
-                whileHover="hover"
-                className="header-image"
-              >
-                <GatsbyImage image={getImage(data.file)} alt="Front" />
-              </motion.div>
-              <div className="header-text">
-                <p>
-                  Hello There,
-                  <br />
-                  I'm <strong>Ajay Titus</strong>
-                  <br />
-                  an aspiring enthusiast of
-                  <br />
-                  <TextLoop
-                    interval={2000}
-                    delay={3000}
-                    springConfig={{ stiffness: 240, damping: 15 }}
-                  >
-                    <strong>FRONTEND</strong>
-                    <strong>DESIGN</strong>
-                    <strong>MUSIC</strong>
-                    <strong>SOFTWARE DEV</strong>
-                  </TextLoop>
-                  <br />
-                  and much more.
-                </p>
-                <p className="sub-text">
-                  Below you'll find some of the significant projects I've worked
-                  on.
-                </p>
-                <p></p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Header imageFile={data.file} />
       <Navbar />
       <motion.div className="main">
         <FlexGrid />
@@ -168,6 +69,7 @@ export default function Home({ data }) {
             <ProjectCard project={project} />
           ))}
         </div>
+        <Contact />
       </motion.div>
     </Layout>
   )

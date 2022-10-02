@@ -1,0 +1,84 @@
+@import "config";
+
+.welcomeTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: auto;
+  position: absolute;
+  color: $font-color;
+  font-family: $font-mono-stack;
+  font-size: 4 * $font-size-global;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 4rem 0;
+  background-color: transparent;
+  color: $secondary-color;
+  background: $home-gradient;
+  position: relative;
+  z-index: 10;
+
+  .headerItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    position: relative;
+
+    .headerImage {
+      border-radius: 1rem;
+      overflow: hidden;
+      max-height: 1080px;
+      max-width: 1920px;
+      min-height: 300px;
+      min-width: 300px;
+
+      // opacity: 75%;
+
+      //background-color: $secondary-color;
+    }
+
+    .headerTitle {
+      position: absolute;
+      color: $font-color;
+      font-family: $font-stack;
+      font-size: x-large;
+      text-align: center;
+      stroke: white;
+      stroke-width: 2px;
+    }
+
+    .headerText {
+      padding: 1rem;
+      color: $font-color;
+      font-family: $font-stack;
+      font-size: 1.5 * $font-size-global;
+      text-align: center;
+
+      p {
+        padding: 1rem;
+      }
+
+      strong {
+        color: $hue-color;
+        font-size: 1.8 * $font-size-global;
+      }
+
+      .subHeading {
+        font-family: $font-heading-stack;
+        letter-spacing: 0.5rem;
+      }
+
+      .subText {
+        font-size: 1.2 * $font-size-global;
+      }
+    }
+  }
+}
