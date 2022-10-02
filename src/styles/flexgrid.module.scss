@@ -1,18 +1,17 @@
 .flexGrid {
   display: flex;
   position: absolute;
-  justify-content: start;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 100%;
-  width: 100vw;
+  width: 100%;
   row-gap: 10rem;
 
   .gridRow {
     display: flex;
     flex-direction: row;
     width: 100%;
-    
+
     opacity: 50%;
   }
 
