@@ -5,7 +5,11 @@ import { useInView } from "react-intersection-observer"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
-import { faGithub, faDribbble } from "@fortawesome/free-brands-svg-icons"
+import {
+  faGithub,
+  faDribbble,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons"
 
 import * as contactStyles from "../styles/contact.module.scss"
 
@@ -137,8 +141,8 @@ export default function Contact({ scrollRef }) {
           variants={childrenVariants}
           className={contactStyles.contentChild}
         >
-          Have any inquires, feedback, suggestions or just have anything to say?
-          Feel free to reach out using the below channels!
+          Have any inquires, feedback, suggestions or want to check out more
+          related platforms? Feel free to reach out!
         </motion.p>
         <br></br>
 
@@ -150,9 +154,15 @@ export default function Contact({ scrollRef }) {
         >
           <ListItem
             text={"ajaytitus1386@gmail.com"}
-            url={"mailto:ajaytitus@gmail.com"}
+            url={"mailto:ajaytitus1386@gmail.com"}
             faIcon={faEnvelope}
           />
+          <ListItem
+            text={"Ajay Titus"}
+            url={"https://www.linkedin.com/in/ajay-titus-563b7718b/"}
+            faIcon={faLinkedin}
+          />
+
           <ListItem
             text={"ajaytitus1386"}
             url={"https://github.com/ajaytitus1386"}
