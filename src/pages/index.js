@@ -13,6 +13,7 @@ import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
 import Contact from "../components/Contact"
 import SectionHeading from "../components/SectionHeading"
+import Skills from "../components/Sections/Skills"
 
 export default function Home({ data }) {
   //Home( { data })
@@ -64,6 +65,11 @@ export default function Home({ data }) {
       <Navbar />
       <motion.div className="main">
         <FlexGrid />
+
+        <div className="container" id="skills">
+          <SectionHeading headingText={"SKILLS"} />
+          <Skills />
+        </div>
 
         <div className="container" id="projects">
           <SectionHeading headingText={"PROJECTS"} />
