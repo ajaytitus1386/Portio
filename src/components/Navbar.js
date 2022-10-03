@@ -58,6 +58,7 @@ function Navbar() {
           </motion.strong>
 
           <ul className={navStyles.navLinks}>
+            <NavLink label="Home" href={"/"} />
             <NavLink label="About" href={"#about"} />
             <NavLink label="Skills" href={"#skills"} />
             <NavLink label="Projects" href={"#projects"} />
