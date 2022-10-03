@@ -4,15 +4,13 @@ import { motion } from "framer-motion"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { tileVariants } from "../global/tileVariants"
 import parse from "html-react-parser"
-import { Link } from "gatsby"
 
 function ProjectCard({ project }) {
   return (
-    <Link
+    <div
       className={`${cardStyles.card} ${
         project.frontmatter.url ? cardStyles.urlActive : ""
       }`}
-      to={project.frontmatter.url}
     >
       <motion.div
         className={cardStyles.tile}
@@ -25,15 +23,15 @@ function ProjectCard({ project }) {
           <h2>{project.frontmatter.title}</h2>
           <h3>{project.frontmatter.stack}</h3>
         </div>
-        <div className={cardStyles.tileImage}>
+        <a className={cardStyles.tileImage} href={project.frontmatter.url}>
           <GatsbyImage
             image={getImage(project.frontmatter.thumb)}
             alt={project.frontmatter.title}
           />
-        </div>
+        </a>
       </motion.div>
       <div className={cardStyles.markdown}>{parse(project.html)}</div>
-    </Link>
+    </div>
   )
 }
 
