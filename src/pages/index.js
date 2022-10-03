@@ -11,7 +11,7 @@ import "../styles/home.scss"
 import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
-import Contact from "../components/contact"
+import Contact from "../components/Contact"
 import SectionHeading from "../components/SectionHeading"
 
 export default function Home({ data }) {
