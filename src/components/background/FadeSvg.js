@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-import { motion, useAnimation } from "framer-motion"
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import * as svgStyles from "../../styles/svg.module.scss"
 
@@ -28,6 +28,9 @@ function FadeSvg({ path }) {
     //if (!inView) controls.start("hidden")
   }, [controls, inView])
 
+  const { scrollYProgress } = useScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2])
+
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +40,7 @@ function FadeSvg({ path }) {
     >
       <motion.path
         d={path}
+        scale={scale}
         variants={icon}
         initial="hidden"
         animate={controls}
