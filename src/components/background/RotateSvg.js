@@ -5,7 +5,7 @@ import Wheel from "../../svg/wheel1.svg"
 
 function RotateSvg() {
   const { scrollYProgress } = useScroll()
-  const degree = useTransform(scrollYProgress, [0, 1], [0, 360])
+  const degree = useTransform(scrollYProgress, [0, 1], [0, 720])
 
   return (
     <motion.div
