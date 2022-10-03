@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { motion, useScroll, useSpring } from "framer-motion"
-import { Link } from "gatsby"
 
 // import '../styles/nav.scss'
 import * as navStyles from "../styles/nav.module.scss"
@@ -15,17 +14,17 @@ const linkVariants = {
   },
 }
 
-function NavLink({ ref, onClick, label }) {
+function NavLink({ label, href }) {
   return (
     <motion.li variants={linkVariants} initial="initial" whileHover="hover">
-      <a className={navStyles.navLink} onClick={onClick(ref)}>
+      <a target="_self" href={href} className={navStyles.navLink}>
         {label}
       </a>
     </motion.li>
   )
 }
 
-export default function Navbar({ contactRef }) {
+function Navbar() {
   const data = useStaticQuery(graphql`
     query MetadataQuery {
       site {
@@ -59,10 +58,10 @@ export default function Navbar({ contactRef }) {
           </motion.strong>
 
           <ul className={navStyles.navLinks}>
-            <NavLink label="About" ref={null} onClick={() => {}} />
-            <NavLink label="Skills" ref={null} onClick={() => {}} />
-            <NavLink label="Projects" ref={null} onClick={() => {}} />
-            <NavLink label="Contact" ref={null} onClick={() => {}} />
+            <NavLink label="About" href={"#about"} />
+            <NavLink label="Skills" href={"#skills"} />
+            <NavLink label="Projects" href={"#projects"} />
+            <NavLink label="Contact" href={"#contact"} />
           </ul>
         </div>
         <motion.div
@@ -73,3 +72,5 @@ export default function Navbar({ contactRef }) {
     </>
   )
 }
+
+export default Navbar

@@ -12,6 +12,7 @@ import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
 import Contact from "../components/contact"
+import SectionHeading from "../components/SectionHeading"
 
 export default function Home({ data }) {
   //Home( { data })
@@ -64,12 +65,16 @@ export default function Home({ data }) {
       <motion.div className="main">
         <FlexGrid />
 
-        <div className="container">
+        <div className="container" id="projects">
+          <SectionHeading headingText={"PROJECTS"} />
           {projects.map(project => (
             <ProjectCard project={project} />
           ))}
         </div>
-        <Contact />
+        <div className="container" id="contact">
+          <SectionHeading headingText={"CONTACT"} />
+          <Contact />
+        </div>
       </motion.div>
     </Layout>
   )
