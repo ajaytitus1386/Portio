@@ -1,6 +1,6 @@
 ---
 title: Avalon Logo Design
-category: design
+category: home
 stack: Illustrator
 slug: illustrator-avalonlogo
 thumb: ../../images/thumbs/AvalonBoard.png

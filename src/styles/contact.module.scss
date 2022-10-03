@@ -1,90 +1,102 @@
-@import 'config';
+@import "config";
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: $primary-color;
+  padding: 2rem 4rem;
+  border-radius: 2rem;
+  width: 50%;
+  color: $font-color;
+
+  .heading {
+    overflow: hidden;
+  }
+
+  // .underline {
+  //     padding-bottom: 1rem;
+  //     border-bottom: 2px solid $primary-light-color-50;
+  // }
+
+  .content {
+    padding-top: 1rem;
+    font-size: 1.2 * $font-size-global;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    width: $safe-width;
-    color: $font-color;
+    justify-content: space-around;
+    align-content: space-around;
 
-    .heading {
-        overflow: hidden;
+    .contentChild {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    // .underline {
-    //     padding-bottom: 1rem;
-    //     border-bottom: 2px solid $primary-light-color-50;
-    // }
-
-    .content {
-        padding-top: 1rem;
-        font-size: 1.2 * $font-size-global;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-content: space-around;
-
-        .linkIconSet {
-            display: flex;
-            flex-direction: row;
-
-            .linkIcon {
-                background-color: $font-color;
-                border-radius: 50%;
-                width: 2.5 * $font-size-global;
-                height: 2.5 * $font-size-global;
-                margin-right: 1rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 1rem;
-                
-                a{
-                    margin-top: 10%;
-                }
-
-                .iconSvg {
-                    fill: $primary-light-color;
-                    transform: scale(1.2);
-
-                    background-color: $font-color;
-                    // border-radius: 50%;
-                    // position: relative;
-                    width: 100%;
-                }
-            }
-        }
-
-        .contentChild {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .link {
-            background-color: rgba($color: #000000, $alpha: 0.1);
-            border-radius: 1rem;
-            color: $font-color;
-            padding: 0.5rem;
-            font-size: 1.5 * $font-size-global;
-            font-family: $font-mono-stack;
-            transition-timing-function: ease-in-out;
-            transition-duration: 500ms;
-        }
-
-        .link:hover {
-            background-color: rgba($color: #000000, $alpha: 0.2);
-            
-        }
-        
+    .link {
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      border-radius: 1rem;
+      color: $font-color;
+      padding: 0.5rem;
+      font-size: 1.5 * $font-size-global;
+      font-family: $font-mono-stack;
+      transition-timing-function: ease-in-out;
+      transition-duration: 500ms;
     }
+
+    .link:hover {
+      background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+  }
 }
 
 .divider {
-    margin-top: 1rem;
-    opacity: 50%;
-    height: 2px;
-    width: 75%;
-    border-radius: 20%;
-    background-color: $primary-light-color;
+  margin-top: 1rem;
+  opacity: 50%;
+  height: 2px;
+  width: 75%;
+  border-radius: 20%;
+  background-color: $primary-light-color;
+}
+
+.contactList {
+  row-gap: 2rem;
+
+  .listItem {
+    margin-bottom: 0.5rem;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+    border-radius: 1rem;
+
+    &:hover {
+      background-color: $primary-light-color-50;
+    }
+
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      column-gap: 0.5rem;
+    }
+  }
+
+  .listIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary-color;
+    background-color: $font-color;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .listText {
+    font-family: $font-stack;
+    color: $font-color;
+    font-size: large;
+  }
 }

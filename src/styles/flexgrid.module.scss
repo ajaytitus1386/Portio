@@ -1,0 +1,30 @@
+.flexGrid {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10rem;
+
+  .gridRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    opacity: 50%;
+  }
+
+  .item {
+    width: 10rem;
+    height: auto;
+  }
+
+  $flexBases: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+  @each $base in $flexBases {
+    .flex-#{$base} {
+      flex: $base 0 auto;
+    }
+  }
+}

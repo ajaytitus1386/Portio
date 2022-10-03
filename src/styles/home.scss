@@ -1,152 +1,49 @@
-@import 'config'; 
-@import 'mixins';
+@import "config";
+@import "mixins";
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+  row-gap: 8rem;
+  margin: 4rem 0;
 }
 
-.welcome-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: auto;
-    position: absolute;
+.mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $home-gradient;
+
+  .mobile-text {
+    padding: 1rem;
     color: $font-color;
-    font-family: $font-mono-stack; 
+    font-family: $font-stack;
     font-size: 4 * $font-size-global;
-}
-
-.mobile{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: $home-gradient; 
-
-    .mobile-text{
-        padding: 1rem;
-        color: $font-color;
-        font-family: $font-stack;
-        font-size: 4 * $font-size-global;
-        text-align: center;
-    }
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    background-color: transparent;
-    color: $secondary-color;
-    background: $home-gradient; 
-
-
-    .header-items {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width : 75%;
-
-        @include mobile {
-           flex-direction: column;
-           padding: 1rem;
-           width: 90%;
-        }
-
-        .header-image {
-            border-radius: 1rem;
-            overflow: hidden;
-            min-height: 300px;
-            min-width: 300px;
-            // opacity: 75%;
-
-            @include mobile {
-                margin-top: 5rem;
-                max-width: 300px;
-                max-height: 300px;
-            }
-
-            //background-color: $secondary-color;
-        }
-    
-        .header-text {
-           
-            // position: absolute;
-            padding: 1rem;
-            color: $font-color;
-            font-family: $font-stack;
-            font-size: 1.5 * $font-size-global;
-            text-align: center;
-
-            
-            p {
-                padding: 1rem;
-                
-            }
-
-            strong {
-                color: $secondary-color;
-                font-size: 1.8 * $font-size-global;
-                
-            }
-
-            .sub-heading {
-                font-family: $font-heading-stack;
-                letter-spacing: 0.5rem;
-            }
-
-            .sub-text {
-                font-size: 1.2 * $font-size-global;
-            }
-        }
-    }
-
-    
+    text-align: center;
+  }
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
-    padding: 5rem;
-    min-height: 500px;
-    background-color: $secondary-color;
-    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.2));
-    // background-image: linear-gradient(180deg, rgba(49,139,187,1) 0%, rgba(49,139,187,0) 25%);
-    // background-blend-mode: screen;
-    background-repeat: repeat;
-    background-position: center;
-    
-}
-
-.sectionHeading {
-    font-family: $font-heading-stack;
-    font-size: 3 * $font-size-global;
-    color: $font-color;
-    letter-spacing: 0.2rem;
-    text-align: center;
-    transition: ease-in-out 200ms;
-}
-
-.sectionHeading:hover {
-    letter-spacing: 0.3rem;
-    transform: scale(1.1);   
-}
-
-.divider {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    opacity: 50%;
-    height: 0.2rem;
-    width: 50vw;
-    border-radius: 1rem;
-    background-color: $primary-light-color;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  min-height: 500px;
+  background-color: $secondary-color;
+  background-image: linear-gradient(
+    rgba(127, 127, 127, 0.1),
+    rgba(127, 127, 127, 0.2)
+  );
+  // background-image: linear-gradient(180deg, rgba(49,139,187,1) 0%, rgba(49,139,187,0) 25%);
+  // background-blend-mode: screen;
+  background-repeat: repeat;
+  background-position: center;
 }
