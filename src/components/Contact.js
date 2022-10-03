@@ -97,12 +97,11 @@ function ListItem({ Icon, iconStyle, text, url }) {
   )
 }
 
-export default function Contact() {
+export default function Contact({ scrollRef }) {
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
   useEffect(() => {
-    console.log("hit contact")
     if (inView) controls.start("show")
     //if (!inView) controls.start("hidden")
   }, [controls, inView])
@@ -115,6 +114,7 @@ export default function Contact() {
         initial="hidden"
         animate="show"
         whileHover="hover"
+        ref={scrollRef}
       >
         Interested in Getting in Touch?
       </motion.h1>
