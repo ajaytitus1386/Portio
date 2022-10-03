@@ -72,11 +72,11 @@ function Skills() {
           Typescript
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
-          TailwindCSS
-        </motion.div>
-        <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           <FontAwesomeIcon icon={faSass} className={skillStyles.gridIcon} />
           Sass
+        </motion.div>
+        <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          TailwindCSS
         </motion.div>
       </motion.div>
       <motion.div
