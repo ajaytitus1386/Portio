@@ -3,6 +3,10 @@ import React, { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
+import { faGithub, faDribbble } from "@fortawesome/free-brands-svg-icons"
+
 import * as contactStyles from "../styles/contact.module.scss"
 
 const headingVariants = {
@@ -83,14 +87,16 @@ const iconChildrenVariants = {
   },
 }
 
-function ListItem({ Icon, iconStyle, text, url }) {
+function ListItem({ faIcon, text, url }) {
   return (
     <motion.li
       className={contactStyles.listItem}
       variants={iconChildrenVariants}
     >
       <a href={url} target="_blank" rel="noreferrer">
-        <div className={contactStyles.listIcon}></div>
+        <div className={contactStyles.listIcon}>
+          <FontAwesomeIcon icon={faIcon} />
+        </div>
         <div className={contactStyles.listText}>{text}</div>
       </a>
     </motion.li>
@@ -145,12 +151,18 @@ export default function Contact({ scrollRef }) {
           <ListItem
             text={"ajaytitus1386@gmail.com"}
             url={"mailto:ajaytitus@gmail.com"}
+            faIcon={faEnvelope}
           />
           <ListItem
             text={"ajaytitus1386"}
             url={"https://github.com/ajaytitus1386"}
+            faIcon={faGithub}
           />
-          <ListItem text={"a_titus"} url={"https://dribbble.com/a_titus"} />
+          <ListItem
+            text={"a_titus"}
+            url={"https://dribbble.com/a_titus"}
+            faIcon={faDribbble}
+          />
         </motion.ul>
       </motion.div>
     </div>
