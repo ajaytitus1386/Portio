@@ -37,7 +37,7 @@ const tileVariants = {
   },
 }
 
-function Skills() {
+function SkillGrid({ children }) {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -47,15 +47,23 @@ function Skills() {
   useEffect(() => {
     if (inView) controls.start("visible")
   }, [controls, inView])
-
   return (
-    <motion.div className={skillStyles.container} ref={ref}>
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        animate={controls}
-        className={skillStyles.skillGrid}
-      >
+    <motion.div
+      variants={gridVariants}
+      initial="hidden"
+      animate={controls}
+      className={skillStyles.skillGrid}
+      ref={ref}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+function Skills() {
+  return (
+    <motion.div className={skillStyles.container}>
+      <SkillGrid>
         <h1 className={skillStyles.gridHeading}>Web Development</h1>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           <FontAwesomeIcon icon={faReact} className={skillStyles.gridIcon} />
@@ -78,13 +86,9 @@ function Skills() {
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           TailwindCSS
         </motion.div>
-      </motion.div>
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        animate={controls}
-        className={skillStyles.skillGrid}
-      >
+      </SkillGrid>
+
+      <SkillGrid>
         <h1 className={skillStyles.gridHeading}>Databases</h1>
 
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
@@ -96,13 +100,8 @@ function Skills() {
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           Firebase
         </motion.div>
-      </motion.div>
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        animate={controls}
-        className={skillStyles.skillGrid}
-      >
+      </SkillGrid>
+      <SkillGrid>
         <h1 className={skillStyles.gridHeading}>S/W Development</h1>
 
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
@@ -122,13 +121,8 @@ function Skills() {
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           Dart
         </motion.div>
-      </motion.div>
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        animate={controls}
-        className={skillStyles.skillGrid}
-      >
+      </SkillGrid>
+      <SkillGrid>
         <h1 className={skillStyles.gridHeading}>Design</h1>
 
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
@@ -143,7 +137,7 @@ function Skills() {
           <strong className={skillStyles.gridIcon}>Ai</strong>
           Illustrator
         </motion.div>
-      </motion.div>
+      </SkillGrid>
     </motion.div>
   )
 }
