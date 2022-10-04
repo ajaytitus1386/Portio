@@ -18,13 +18,14 @@ $mobile_width: 640px;
 
 // BW Palette
 $primary-color: #1a1a1a;
+$primary-color-50: #1a1a1a88;
 $secondary-color: #212529;
 $hue-color: #ff7f11;
-$primary-light-color: rgba(73, 80, 87, 1);
-$primary-light-color-50: rgba(73, 80, 87, 0.5);
+$primary-light-color: rgba(40, 40, 43, 1);
+$primary-light-color-50: rgba(40, 40, 43, 0.5);
 $home-gradient: linear-gradient(
   360deg,
-  rgba(73, 80, 87, 1) 0%,
+  rgba(40, 40, 43, 1) 0%,
   rgba(52, 58, 64, 1) 100%
 );
 
