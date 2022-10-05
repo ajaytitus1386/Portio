@@ -74,7 +74,6 @@ function Header({ imageFile }) {
             >
               <GatsbyImage image={getImage(imageFile)} alt="Front" />
             </motion.div>
-            <div className={headerStyles.imageGradient} />
 
             <div className={headerStyles.headerTitle}>
               <TextLoop
@@ -88,33 +87,6 @@ function Header({ imageFile }) {
                 <h1>Student</h1>
               </TextLoop>
             </div>
-            {/* <div className={headerStyles.headerText}>
-              <p>
-                Hello There,
-                <br />
-                I'm <strong>Ajay Titus</strong>
-                <br />
-                an aspiring enthusiast of
-                <br />
-                <TextLoop
-                  interval={2000}
-                  delay={3000}
-                  springConfig={{ stiffness: 240, damping: 15 }}
-                >
-                  <strong>FRONTEND</strong>
-                  <strong>DESIGN</strong>
-                  <strong>MUSIC</strong>
-                  <strong>SOFTWARE DEV</strong>
-                </TextLoop>
-                <br />
-                and much more.
-              </p>
-              <p className={headerStyles.subText}>
-                Below you'll find some of the significant projects I've worked
-                on.
-              </p>
-              <p></p>
-            </div> */}
           </motion.div>
         </motion.div>
       )}

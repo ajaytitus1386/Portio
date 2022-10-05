@@ -42,17 +42,18 @@
       }
     }
 
-    .imageGradient {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      // Adjust the primary color limit
-      background: linear-gradient(
-        to bottom,
-        transparent 60%,
-        $primary-light-color 80%
-      );
-    }
+    // .imageGradient {
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 100%;
+    //   // Adjust the primary color limit
+    //   background: linear-gradient(
+    //     to bottom,
+    //     transparent 60%,
+    //     $primary-light-color 80%,
+    //     $primary-light-color 100%
+    //   );
+    // }
 
     .headerImage {
       border-radius: 1rem;
@@ -62,6 +63,9 @@
       min-height: 300px;
       min-width: 300px;
       background-image: $header-gradient;
+
+      transition: ease-in-out 300ms;
+
       // opacity: 75%;
 
       //background-color: $secondary-color;
