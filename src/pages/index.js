@@ -102,6 +102,11 @@ export const query = graphql`
           slug
           stack
           url
+          images {
+            childImageSharp {
+              gatsbyImageData(width: 640, height: 360)
+            }
+          }
           title
           thumb {
             childImageSharp {
