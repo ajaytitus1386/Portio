@@ -11,7 +11,7 @@ import "../styles/home.scss"
 import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
-import Contact from "../components/Contact"
+import Contact from "../components/Sections/Contact"
 import SectionHeading from "../components/SectionHeading"
 import Skills from "../components/Sections/Skills"
 
