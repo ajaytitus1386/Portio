@@ -9,13 +9,12 @@ featureOnHome: false
 featureOnCategory: true
 ---
 
-
 # Moon and Cliff
 
-A cloaked individual overlooking a cliff edge with a moon and a distant planet on the horizon 
+A cloaked individual overlooking a cliff edge with a moon and a distant planet on the horizon
 
-*Inspired by the Cosmic Universe of Star Wars*
+Find it here [https://dribbble.com/shots/16165586-Moon-and-Cliff](https://dribbble.com/shots/16165586-Moon-and-Cliff)
+
+_Inspired by the Cosmic Universe of Star Wars_
 
 &nbsp;
-
-
