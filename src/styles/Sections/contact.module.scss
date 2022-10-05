@@ -1,4 +1,4 @@
-@import "config";
+@import "../config";
 
 .container {
   display: flex;
@@ -52,7 +52,6 @@
 
 .divider {
   margin-top: 1rem;
-  opacity: 50%;
   height: 2px;
   width: 75%;
   border-radius: 20%;

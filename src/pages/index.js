@@ -11,8 +11,9 @@ import "../styles/home.scss"
 import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
-import Contact from "../components/Contact"
+import Contact from "../components/Sections/Contact"
 import SectionHeading from "../components/SectionHeading"
+import Skills from "../components/Sections/Skills"
 
 export default function Home({ data }) {
   //Home( { data })
@@ -65,6 +66,11 @@ export default function Home({ data }) {
       <motion.div className="main">
         <FlexGrid />
 
+        <div className="container" id="skills">
+          <SectionHeading headingText={"SKILLS"} />
+          <Skills />
+        </div>
+
         <div className="container" id="projects">
           <SectionHeading headingText={"PROJECTS"} />
           {projects.map(project => (
@@ -96,6 +102,11 @@ export const query = graphql`
           slug
           stack
           url
+          images {
+            childImageSharp {
+              gatsbyImageData(width: 640, height: 360)
+            }
+          }
           title
           thumb {
             childImageSharp {

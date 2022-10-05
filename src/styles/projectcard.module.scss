@@ -1,51 +1,52 @@
-@import 'config';
-@import 'mixins';
+@import "config";
+@import "mixins";
 
 .urlActive {
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
 .tile {
-    margin: 1rem;
-    color: $font-color;
-    font-family: $font-stack;
-    border-radius: 1rem;
-    overflow: hidden;
-    max-width: 30rem;
-    .tileImage {
-        border-radius: 1rem;
-    }
+  margin: 1rem;
+  color: $font-color;
+  font-family: $font-stack;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 30rem;
+  background-color: $primary-color;
 
-    .tileInfo {
-        position: absolute;
-        z-index: 2;
-        padding: 1rem;
-        
-    }
+  .tileImage {
+    border-radius: 1rem;
+  }
+
+  .tileInfo {
+    position: absolute;
+    z-index: 2;
+    padding: 1rem;
+  }
 }
 
-
-
 .card {
+  display: flex;
+  flex-direction: row;
+  width: $safe-width;
+  border-radius: 2rem;
+  transition: all 300ms ease-in-out;
+
+  .markdown {
+    width: 50%;
     display: flex;
-    flex-direction: row;
-    width: $safe-width;
-    border-radius: 2rem;
-    transition: all 300ms ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: $font-color;
 
-    .markdown {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        color: $font-color;
-
-        
+    a {
+      color: $font-color;
+      text-decoration: underline;
     }
+  }
 }
 
 .card:hover {
-    background-color: $light-bg-color;
+  background-color: $light-bg-color;
 }

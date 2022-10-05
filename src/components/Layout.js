@@ -9,12 +9,33 @@ import { useCallback } from "react"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fab } from "@fortawesome/free-brands-svg-icons"
-import { faGithub, faDribbble } from "@fortawesome/free-brands-svg-icons"
+import {
+  faGithub,
+  faDribbble,
+  faLinkedin,
+  faReact,
+  faNodeJs,
+  faSass,
+  faJava,
+  faPython,
+  faFigma,
+} from "@fortawesome/free-brands-svg-icons"
 
 import * as layoutStyles from "../styles/layout.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-library.add(fab, faGithub, faDribbble)
+library.add(
+  fab,
+  faGithub,
+  faDribbble,
+  faLinkedin,
+  faReact,
+  faNodeJs,
+  faSass,
+  faJava,
+  faPython,
+  faFigma
+)
 
 export default function Layout({ children }) {
   const particlesInit = useCallback(async engine => {

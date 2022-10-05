@@ -26,7 +26,7 @@ const welcomeVariants = {
 
 function Header({ imageFile }) {
   const [showWelcome, setShowWelcome] = useState(true)
-  const [showHeader, setShowHeader] = useState(true)
+  const [showHeader] = useState(true)
 
   setTimeout(() => {
     setShowWelcome(false)
@@ -74,35 +74,18 @@ function Header({ imageFile }) {
             >
               <GatsbyImage image={getImage(imageFile)} alt="Front" />
             </motion.div>
-            {/* <div className={headerStyles.headerTitle}>
-              <h1>Ajay Titus</h1>
-            </div> */}
-            <div className={headerStyles.headerText}>
-              <p>
-                Hello There,
-                <br />
-                I'm <strong>Ajay Titus</strong>
-                <br />
-                an aspiring enthusiast of
-                <br />
-                <TextLoop
-                  interval={2000}
-                  delay={3000}
-                  springConfig={{ stiffness: 240, damping: 15 }}
-                >
-                  <strong>FRONTEND</strong>
-                  <strong>DESIGN</strong>
-                  <strong>MUSIC</strong>
-                  <strong>SOFTWARE DEV</strong>
-                </TextLoop>
-                <br />
-                and much more.
-              </p>
-              <p className={headerStyles.subText}>
-                Below you'll find some of the significant projects I've worked
-                on.
-              </p>
-              <p></p>
+
+            <div className={headerStyles.headerTitle}>
+              <TextLoop
+                interval={4000}
+                delay={3000}
+                springConfig={{ stiffness: 240, damping: 15 }}
+                className={headerStyles.loopingTitles}
+              >
+                <h1>Developer</h1>
+                <h1>Musician</h1>
+                <h1>Student</h1>
+              </TextLoop>
             </div>
           </motion.div>
         </motion.div>
