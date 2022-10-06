@@ -12,7 +12,6 @@ function ProjectCard({ project }) {
     project.frontmatter.thumb,
     ...(project.frontmatter.images || []),
   ]
-  console.log(images)
 
   return (
     <div
