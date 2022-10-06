@@ -11,7 +11,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
 
-import * as contactStyles from "../../styles/Sections/contact.module.scss"
+import * as contactStyles from "../../styles/sections/contact.module.scss"
 
 const headingVariants = {
   hidden: {

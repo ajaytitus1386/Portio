@@ -12,7 +12,7 @@ import React, { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-import * as skillStyles from "../../styles/Sections/skills.module.scss"
+import * as skillStyles from "../../styles/sections/skills.module.scss"
 
 const gridVariants = {
   hidden: { opacity: 1, scale: 0 },
