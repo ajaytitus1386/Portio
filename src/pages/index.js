@@ -11,15 +11,17 @@ import "../styles/home.scss"
 import ProjectCard from "../components/ProjectCard"
 import FlexGrid from "../components/FlexGrid"
 import Header from "../components/Header"
-import Contact from "../components/Sections/Contact"
+import Contact from "../components/sections/Contact"
 import SectionHeading from "../components/SectionHeading"
-import Skills from "../components/Sections/Skills"
+import Skills from "../components/sections/Skills"
+import About from "../components/sections/About"
 
 export default function Home({ data }) {
   //Home( { data })
   // const {title, desc, copy} = data.site.siteMetadata
 
   const projects = data.projects.nodes
+  const about = data.about
 
   // window.mobileCheck = function() {
   //   let check = false;
@@ -66,6 +68,11 @@ export default function Home({ data }) {
       <motion.div className="main">
         <FlexGrid />
 
+        <div className="container" id="about">
+          <SectionHeading headingText={"ABOUT"} />
+          <About data={about} />
+        </div>
+
         <div className="container" id="skills">
           <SectionHeading headingText={"SKILLS"} />
           <Skills />
@@ -92,6 +99,12 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(width: 1920, height: 1080)
       }
+    }
+    about: markdownRemark(frontmatter: { slug: { eq: "about/about" } }) {
+      frontmatter {
+        slug
+      }
+      html
     }
     projects: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "home" } } }
