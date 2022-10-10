@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { motion, useScroll, useSpring } from "framer-motion"
+import Sidebar from "./Sidebar"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 // import '../styles/nav.scss'
 import * as navStyles from "../styles/nav.module.scss"
+
 const linkVariants = {
   initial: {
     scale: 1,
@@ -37,6 +41,12 @@ function Navbar() {
     }
   `)
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
+
   const { title } = data.site.siteMetadata
 
   const { scrollYProgress } = useScroll()
@@ -47,7 +57,7 @@ function Navbar() {
   })
 
   return (
-    <>
+    <div className={navStyles.stickyContainer}>
       <nav className={navStyles.navMain}>
         <div className={navStyles.navItems}>
           <motion.strong
@@ -64,13 +74,22 @@ function Navbar() {
             <NavLink label="Projects" href={"#projects"} />
             <NavLink label="Contact" href={"#contact"} />
           </ul>
+
+          <button
+            className={navStyles.sidebarToggle}
+            onClick={() => toggleSidebar()}
+          >
+            <FontAwesomeIcon className={navStyles.toggleIcon} icon={faBars} />
+          </button>
         </div>
         <motion.div
           className={navStyles.progressBar}
           style={{ scaleX: scaleX }}
         />
       </nav>
-    </>
+
+      <Sidebar isOpen={isSidebarOpen} />
+    </div>
   )
 }
 

@@ -16,9 +16,7 @@ function ProjectCard({ project }) {
   return (
     <div
       key={project.frontmatter.title}
-      className={`${cardStyles.card} ${
-        project.frontmatter.url ? cardStyles.urlActive : ""
-      }`}
+      className={`${cardStyles.card}`}
     >
       <motion.div
         className={cardStyles.tile}

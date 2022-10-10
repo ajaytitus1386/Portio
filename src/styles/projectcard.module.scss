@@ -1,10 +1,6 @@
 @import "config";
 @import "mixins";
 
-.urlActive {
-  cursor: pointer;
-}
-
 .tile {
   margin: 1rem;
   color: $font-color;
@@ -19,26 +15,53 @@
   }
 
   .tileInfo {
+    display: none;
     position: absolute;
     z-index: 2;
     padding: 1rem;
+
+    @include mobile-above {
+      display: block;
+    }
   }
 }
 
 .card {
   display: flex;
-  flex-direction: row;
-  width: $safe-width;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
   border-radius: 2rem;
   transition: all 300ms ease-in-out;
 
+  @include desktop-above {
+    flex-direction: row;
+    padding: 0;
+    width: $safe-width;
+  }
+
   .markdown {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     color: $font-color;
+
+    @include desktop-above {
+      width: 50%;
+      align-items: flex-start;
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
+
+      @include desktop-above {
+        text-align: start;
+      }
+    }
 
     a {
       color: $font-color;

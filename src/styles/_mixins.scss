@@ -1,58 +1,64 @@
-@import 'config';
-
-// @mixin for_breakpoint($breakpoints) {
-//     $conditions : ();
-//     @each $breakpoint in $breakpoints {
-//         // If the key exists in the map
-//         $conditions: append(
-//             $conditions,
-//             #{inspect(map-get($media_queries, $breakpoint))},
-//             comma
-//         );
-//     }
-
-//     @media #{$conditions} {
-//         @content;
-//     }
-
-// }
+@import "config";
 
 @mixin mobile {
-    @media (max-width : #{$mobile_width}) {
-        @content;
-    }
+  @media (max-width : #{$mobile-width}) {
+    @content;
+  }
 }
 
-@mixin medium {
-    @media (min-width: $mobile_width) and (max-width : $desktop_width) {
-        @content;
-    }
+@mixin mobile-above {
+  @media (min-width : #{$mobile-width + 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width + 1}) and (max-width: ($desktop-width - 1)) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin laptop-above {
+  @media (min-width: $laptop-width) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width : $desktop-width) {
-        @content;
-    }
+  @media (min-width: $desktop-width) and (max-width: ($wide_width - 1)) {
+    @content;
+  }
 }
 
-@mixin header-width(){
+@mixin desktop-above {
+  @media (min-width: $wide-width) {
+    @content;
+  }
+}
+
+@mixin header-width() {
+  width: 75%;
+
+  @media screen and (min-width: 1100px) {
     width: 75%;
+  }
 
-    @media screen and (min-width:1100px) {
-        width: 75%;
-    }
-
-    @media screen and (max-width:600px) {
-        width: 90%;
-    }
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 }
 
 @mixin designGrid() {
-    @media screen and (min-width: 1000px) {
-
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  @media screen and (min-width: 1000px) {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

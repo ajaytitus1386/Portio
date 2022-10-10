@@ -1,16 +1,24 @@
 @import "config";
+@import "mixins";
 
 .container {
   display: flex;
-  flex-direction: row;
+
   justify-content: center;
   align-items: center;
 
-  writing-mode: vertical-lr;
+  flex-direction: column-reverse;
+  position: relative;
+  writing-mode: horizontal-tb;
 
-  top: 0;
-  left: 0;
-  position: absolute;
+  @include desktop-above {
+    flex-direction: row;
+    writing-mode: vertical-lr;
+
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
 }
 
 .sectionHeading {
@@ -20,7 +28,10 @@
   letter-spacing: 0.8rem;
   text-align: center;
   transition: ease-in-out 200ms;
-  transform: rotate(180deg);
+
+  @include desktop-above {
+    transform: rotate(180deg);
+  }
 }
 
 .divider {
@@ -31,7 +42,11 @@
   margin: 0.5rem;
 
   height: 0.2rem;
-  width: 5rem;
+  width: 100%;
+
+  @include desktop-above {
+    width: 5rem;
+  }
 
   // Mobile
   // height: 5rem;
