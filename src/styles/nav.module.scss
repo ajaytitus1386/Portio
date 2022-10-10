@@ -1,10 +1,13 @@
 @import "config";
 @import "mixins";
 
-.navMain {
+.stickyContainer {
   z-index: 100;
   position: sticky;
   top: 0;
+}
+
+.navMain {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +18,7 @@
     background-color: red;
   }
 
-  @include medium {
+  @include tablet {
     background-color: green;
   }
 
@@ -33,22 +36,22 @@
   color: $font-color;
   padding: 1rem;
 
-  @include mobile {
-    width: 100%;
-  }
-
   .navLogo {
     font-size: 2rem;
-    padding: 1rem auto;
+    padding: 0rem 0.5rem;
     font-family: $font-heading-stack;
     letter-spacing: 0.4rem;
   }
 
   .navLinks {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+
+    @include laptop-above {
+      display: flex;
+    }
 
     .navLink {
       color: $font-color;
@@ -64,6 +67,22 @@
       border-bottom: 2px solid $hue-color;
       color: $hue-color;
       // border: 3px solid $secondary-color;
+    }
+  }
+
+  .sidebarToggle {
+    background-color: $light-bg-color;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.2rem;
+
+    @include laptop-above {
+      display: none;
+    }
+
+    .toggleIcon {
+      color: $font-color;
+      font-size: 1.2rem;
     }
   }
 }
