@@ -13,17 +13,6 @@
   justify-content: center;
   flex-direction: column;
   background-color: $primary-light-color;
-
-  @include mobile {
-    background-color: red;
-  }
-
-  @include tablet {
-    background-color: green;
-  }
-
-  @include desktop {
-  }
 }
 
 .navItems {
