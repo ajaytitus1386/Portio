@@ -37,13 +37,7 @@
 }
 
 @mixin desktop-above {
-  @media (min-width: $desktop-width) {
-    @content;
-  }
-}
-
-@mixin large {
-  @media (min-width: ($wide-width)) {
+  @media (min-width: $wide-width) {
     @content;
   }
 }
