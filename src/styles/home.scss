@@ -6,28 +6,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   z-index: 10;
   position: relative;
-  row-gap: 8rem;
+  row-gap: 2rem;
   margin: 4rem 0;
   min-height: 20vh;
-}
 
-.mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: $home-gradient;
-
-  .mobile-text {
-    padding: 1rem;
-    color: $font-color;
-    font-family: $font-stack;
-    font-size: 4 * $font-size-global;
-    text-align: center;
+  @include mobile-above {
+    width: 100%;
+    row-gap: 8rem;
   }
 }
 
