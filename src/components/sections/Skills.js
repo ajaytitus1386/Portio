@@ -13,12 +13,7 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
 import * as skillStyles from "../../styles/sections/skills.module.scss"
-import {
-  faPalette,
-  faDatabase,
-  faLeaf,
-  faFire,
-} from "@fortawesome/free-solid-svg-icons"
+import { faDatabase, faLeaf, faFire } from "@fortawesome/free-solid-svg-icons"
 
 const gridVariants = {
   hidden: { opacity: 1, scale: 0 },
@@ -92,7 +87,7 @@ function Skills() {
           Sass
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
-          <FontAwesomeIcon icon={faPalette} className={skillStyles.gridIcon} />
+          <strong className={skillStyles.gridIcon}>Tw</strong>
           TailwindCSS
         </motion.div>
       </SkillGrid>
