@@ -12,14 +12,11 @@ function ProjectCard({ project }) {
     project.frontmatter.thumb,
     ...(project.frontmatter.images || []),
   ]
-  console.log(images)
 
   return (
     <div
       key={project.frontmatter.title}
-      className={`${cardStyles.card} ${
-        project.frontmatter.url ? cardStyles.urlActive : ""
-      }`}
+      className={`${cardStyles.card}`}
     >
       <motion.div
         className={cardStyles.tile}

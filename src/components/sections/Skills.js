@@ -12,7 +12,8 @@ import React, { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-import * as skillStyles from "../../styles/Sections/skills.module.scss"
+import * as skillStyles from "../../styles/sections/skills.module.scss"
+import { faDatabase, faLeaf, faFire } from "@fortawesome/free-solid-svg-icons"
 
 const gridVariants = {
   hidden: { opacity: 1, scale: 0 },
@@ -70,6 +71,7 @@ function Skills() {
           ReactJS
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <strong className={skillStyles.gridIcon}>N</strong>
           NextJS
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
@@ -77,6 +79,7 @@ function Skills() {
           NodeJS
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <strong className={skillStyles.gridIcon}>Ts</strong>
           Typescript
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
@@ -84,6 +87,7 @@ function Skills() {
           Sass
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <strong className={skillStyles.gridIcon}>Tw</strong>
           TailwindCSS
         </motion.div>
       </SkillGrid>
@@ -92,12 +96,15 @@ function Skills() {
         <h1 className={skillStyles.gridHeading}>Databases</h1>
 
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <FontAwesomeIcon icon={faDatabase} className={skillStyles.gridIcon} />
           SQL
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <FontAwesomeIcon icon={faLeaf} className={skillStyles.gridIcon} />
           MongoDB
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          <FontAwesomeIcon icon={faFire} className={skillStyles.gridIcon} />
           Firebase
         </motion.div>
       </SkillGrid>
@@ -120,6 +127,9 @@ function Skills() {
         </motion.div>
         <motion.div variants={tileVariants} className={skillStyles.gridTile}>
           Dart
+        </motion.div>
+        <motion.div variants={tileVariants} className={skillStyles.gridTile}>
+          BLoC
         </motion.div>
       </SkillGrid>
       <SkillGrid>

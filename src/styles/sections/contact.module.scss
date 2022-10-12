@@ -1,4 +1,5 @@
 @import "../config";
+@import '../mixins';
 
 .container {
   display: flex;
@@ -6,10 +7,15 @@
   justify-content: flex-start;
   align-items: center;
   background: $primary-color;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   border-radius: 2rem;
-  width: 50%;
+  width: 100%;
   color: $font-color;
+
+  @include desktop-above{
+    padding: 2rem 4rem;
+    width: 50%;
+  }
 
   .heading {
     overflow: hidden;
