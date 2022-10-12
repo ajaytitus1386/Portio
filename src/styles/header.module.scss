@@ -9,7 +9,11 @@
   position: absolute;
   color: $font-color;
   font-family: $font-mono-stack;
-  font-size: 4 * $font-size-global;
+  font-size: 2 * $font-size-global;
+
+  @include laptop-above {
+    font-size: 4 * $font-size-global;
+  }
 }
 
 .header {
@@ -26,7 +30,7 @@
   z-index: 10;
   overflow: hidden;
 
-  max-height: 600px;
+  max-height: calc(100vh - $nav-height);
 
   @include tablet-above {
     padding: 0rem 0;
