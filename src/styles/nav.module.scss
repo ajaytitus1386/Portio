@@ -1,6 +1,25 @@
 @import "config";
 @import "mixins";
 
+.wipMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.2rem;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+
+  &:hover {
+    background-color: $light-bg-color;
+    padding: 0.5rem;
+    border-radius: 2rem;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
 .stickyContainer {
   z-index: 100;
   position: sticky;

@@ -3,9 +3,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import { motion, useScroll, useSpring } from "framer-motion"
 import Sidebar from "./Sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faQuestionCircle } from "@fortawesome/free-solid-svg-icons"
 
-// import '../styles/nav.scss'
+import "../styles/tooltip.module.scss"
 import * as navStyles from "../styles/nav.module.scss"
 
 const linkVariants = {
@@ -66,6 +66,14 @@ function Navbar() {
           >
             {title}
           </motion.strong>
+
+          <a
+            className={navStyles.wipMsg}
+            data-tooltip="This site is still under development!"
+            href="https://github.com/ajaytitus1386/Portio"
+          >
+            <FontAwesomeIcon icon={faQuestionCircle} />
+          </a>
 
           <ul className={navStyles.navLinks}>
             <NavLink label="Home" href={"/"} />
