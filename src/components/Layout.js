@@ -24,6 +24,8 @@ import {
 import * as layoutStyles from "../styles/layout.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import particleConfig from "../data/particles/bubblestars.json"
+
 library.add(
   fab,
   faGithub,
@@ -57,83 +59,7 @@ export default function Layout({ children }) {
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
-            options={{
-              background: {
-                color: {
-                  value: "transparent",
-                },
-                opacity: 0.5,
-              },
-              fullScreen: {
-                enable: false,
-                zIndex: 0, // or any value is good for you, if you use -1 set `interactivity.detectsOn` to `"window"` if you need mouse interactions
-              },
-              fpsLimit: 60,
-              interactivity: {
-                events: {
-                  onClick: {
-                    enable: false,
-                    mode: "push",
-                  },
-                  onHover: {
-                    enable: true,
-                    mode: "repulse",
-                  },
-                  resize: true,
-                },
-                modes: {
-                  push: {
-                    quantity: 4,
-                  },
-                  repulse: {
-                    distance: 200,
-                    duration: 0.2,
-                  },
-                },
-              },
-              particles: {
-                color: {
-                  value: "#ffffff",
-                },
-                links: {
-                  color: "#ffffff",
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.5,
-                  width: 1,
-                },
-                collisions: {
-                  enable: true,
-                },
-                move: {
-                  directions: "none",
-                  enable: true,
-                  outModes: {
-                    default: "bounce",
-                  },
-                  random: false,
-                  speed: 2,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                    area: 1000,
-                  },
-                  value: 20,
-                },
-                opacity: {
-                  value: 0.5,
-                },
-                shape: {
-                  type: "circle",
-                },
-                size: {
-                  value: { min: 1, max: 5 },
-                },
-              },
-              detectRetina: true,
-            }}
+            options={particleConfig}
           />
           {children}
         </div>
