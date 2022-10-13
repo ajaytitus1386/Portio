@@ -33,6 +33,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 2rem;
+  padding: 1rem 0;
   transition: all 300ms ease-in-out;
 
   @include desktop-above {
@@ -42,15 +43,17 @@
   }
 
   .markdown {
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $font-color;
+    text-align: center;
 
-    @include desktop-above {
+    @include mobile-above {
       width: 50%;
+      text-align: start;
       align-items: flex-start;
     }
 
@@ -58,7 +61,7 @@
       width: 100%;
       text-align: center;
 
-      @include desktop-above {
+      @include mobile-above {
         text-align: start;
       }
     }
