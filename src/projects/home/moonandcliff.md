@@ -1,6 +1,6 @@
 ---
 title: Moon and Cliff
-category: home
+category: none
 stack: Photoshop
 slug: photoshop-mooncliff
 thumb: ../../images/thumbs/MoonAndCliff.png
