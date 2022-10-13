@@ -4,14 +4,16 @@
 .container {
   display: flex;
 
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   flex-direction: column-reverse;
   position: relative;
   writing-mode: horizontal-tb;
 
-  @include desktop-above {
+  height: 100%;
+
+  @include laptop-above {
     flex-direction: row;
     writing-mode: vertical-lr;
 
@@ -29,8 +31,10 @@
   text-align: center;
   transition: ease-in-out 200ms;
 
-  @include desktop-above {
+  @include laptop-above {
     transform: rotate(180deg);
+    // position: sticky;
+    // top: $nav-height;
   }
 }
 
@@ -44,7 +48,7 @@
   height: 0.2rem;
   width: 100%;
 
-  @include desktop-above {
+  @include laptop-above {
     width: 5rem;
   }
 

@@ -7,7 +7,7 @@
   column-gap: 2rem;
   row-gap: 4rem;
 
-  @include desktop-above {
+  @include tablet-above {
     width: $safe-width;
     grid-template-columns: repeat(2, 1fr);
   }
