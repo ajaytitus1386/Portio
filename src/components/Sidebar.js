@@ -14,8 +14,8 @@ import * as sidebarStyles from "../styles/sidebar.module.scss"
 function SidebarLink({ label, href, icon = faCircleDot }) {
   return (
     <li className={sidebarStyles.sidebarLink}>
-      <FontAwesomeIcon className={sidebarStyles.sidebarIcon} icon={icon} />
       <a target="_self" href={href}>
+        <FontAwesomeIcon className={sidebarStyles.sidebarIcon} icon={icon} />
         {label}
       </a>
     </li>
