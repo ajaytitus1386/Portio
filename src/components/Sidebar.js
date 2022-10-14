@@ -34,7 +34,7 @@ function Sidebar({ isOpen }) {
         <ul className={sidebarStyles.sidebarLinks}>
           <SidebarLink label="Home" href={"/"} icon={faHome} />
           <SidebarLink label="About" href={"#about"} icon={faRibbon} />
-          <SidebarLink label="Skills" href={"#skills"} icon={faToolbox} />
+          <SidebarLink label="Expertise" href={"#expertise"} icon={faToolbox} />
           <SidebarLink label="Projects" href={"#projects"} icon={faTimeline} />
           <SidebarLink label="Contact" href={"#contact"} icon={faMessage} />
         </ul>

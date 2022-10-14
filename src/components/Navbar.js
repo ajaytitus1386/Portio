@@ -78,7 +78,7 @@ function Navbar() {
           <ul className={navStyles.navLinks}>
             <NavLink label="Home" href={"/"} />
             <NavLink label="About" href={"#about"} />
-            <NavLink label="Skills" href={"#skills"} />
+            <NavLink label="Expertise" href={"#expertise"} />
             <NavLink label="Projects" href={"#projects"} />
             <NavLink label="Contact" href={"#contact"} />
           </ul>
