@@ -1,7 +1,6 @@
 @import "../config";
 @import "../mixins";
 .container {
-  //max-width: $safe-width;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,16 +10,17 @@
   transition: ease-in 500ms;
   width: 100%;
 
+  @include mobile-above {
+    align-items: flex-start;
+    padding: 4rem;
+    max-width: $safe-width;
+  }
+
   .hello {
     font-size: 3.5 * $font-size-global;
     strong {
       color: $hue-color;
     }
-  }
-
-  @include mobile-above {
-    align-items: flex-start;
-    padding: 4rem;
   }
 
   .accolade {
