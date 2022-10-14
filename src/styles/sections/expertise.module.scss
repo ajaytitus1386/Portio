@@ -1,0 +1,117 @@
+@import "../config";
+@import "../mixins";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+
+  @include laptop-above {
+    width: $safe-width;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet-above {
+    width: $safe-width;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    border: 2px solid rgba($color: #fff, $alpha: 0.75);
+    color: $font-color;
+    padding: 2rem 1rem;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .boxHead {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        position: relative;
+        margin: 0 0.5rem;
+      }
+
+      h1:after {
+        content: "";
+        position: absolute;
+        bottom: 0.4rem;
+        background-color: $hue-color;
+        left: 1%;
+        z-index: -1;
+        height: 0.4rem;
+        width: 100%;
+      }
+    }
+
+    .boxContent {
+      border-left: 2px solid $light-bg-color;
+      position: relative;
+      padding: 1rem 0.5rem;
+
+      //   &::before {
+      //     position: absolute;
+      //     top: 0;
+      //     left: -0.25rem;
+      //     content: "";
+      //     background-color: rgba($color: #fff, $alpha: 0.8);
+      //     border-radius: 100%;
+      //     width: 0.5rem;
+      //     height: 0.5rem;
+      //   }
+    }
+
+    .boxTags {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      column-gap: 1rem;
+      margin: 0.5rem 0;
+
+      .tag {
+        padding: 0.6rem 0.4rem;
+        background-color: $light-bg-color;
+        color: $font-color;
+        font-family: $font-mono-stack;
+        font-size: $font-size-global;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.2rem;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+
+  .extraBox {
+    width: 75%;
+    align-self: center;
+    justify-self: center;
+    display: none;
+
+    @include laptop-above {
+      display: block;
+    }
+
+    @include tablet-above {
+      display: none;
+    }
+  }
+}

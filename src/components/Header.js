@@ -24,13 +24,15 @@ const welcomeVariants = {
   },
 }
 
-function Header({ imageFile }) {
+function Header({ imageFiles }) {
   const [showWelcome, setShowWelcome] = useState(true)
   const [showHeader] = useState(true)
+  const [imageInFocus, setImageInFocus] = useState(0)
 
   setTimeout(() => {
     setShowWelcome(false)
   }, 2800)
+
   return (
     <AnimatePresence>
       {showHeader && (
@@ -72,7 +74,27 @@ function Header({ imageFile }) {
               initial="visible"
               className={headerStyles.headerImage}
             >
-              <GatsbyImage image={getImage(imageFile)} alt="Front" />
+              <GatsbyImage
+                className={`${headerStyles.clip}  ${
+                  imageInFocus === 0 ? headerStyles.focus : ""
+                }`}
+                image={getImage(imageFiles[0])}
+                alt="Front-1"
+              />
+              <GatsbyImage
+                className={`${headerStyles.clip}  ${
+                  imageInFocus === 1 ? headerStyles.focus : ""
+                }`}
+                image={getImage(imageFiles[1])}
+                alt="Front-2"
+              />
+              <GatsbyImage
+                className={`${headerStyles.clip}  ${
+                  imageInFocus === 2 ? headerStyles.focus : ""
+                }`}
+                image={getImage(imageFiles[2])}
+                alt="Front-3"
+              />
             </motion.div>
 
             <div className={headerStyles.headerTitle}>

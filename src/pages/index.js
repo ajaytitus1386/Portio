@@ -12,8 +12,8 @@ import ProjectCard from "../components/ProjectCard"
 import Header from "../components/Header"
 import Contact from "../components/sections/Contact"
 import SectionHeading from "../components/SectionHeading"
-import Skills from "../components/sections/Skills"
 import About from "../components/sections/About"
+import Expertise from "../components/sections/Expertise"
 
 export default function Home({ data }) {
   const projects = data.projects.nodes
@@ -21,7 +21,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <Header imageFile={data.file} />
+      <Header imageFiles={data.frontImages.nodes} />
       <Navbar />
       <motion.div className="main">
         {/* <FlexGrid /> */}
@@ -31,9 +31,9 @@ export default function Home({ data }) {
           <About data={about} />
         </div>
 
-        <div className="container" id="skills">
-          <SectionHeading headingText={"SKILLS"} />
-          <Skills />
+        <div className="container" id="expertise">
+          <SectionHeading headingText="EXPERTISE" />
+          <Expertise />
         </div>
 
         <div className="container" id="projects">
@@ -53,9 +53,11 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query HomePage {
-    file(relativePath: { eq: "front.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(width: 1920, height: 1080)
+    frontImages: allFile(filter: { relativePath: { regex: "/^front/" } }) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData
+        }
       }
     }
     about: markdownRemark(frontmatter: { slug: { eq: "about/about" } }) {

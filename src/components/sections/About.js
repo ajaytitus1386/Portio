@@ -21,18 +21,20 @@ function About({ data }) {
   const { html } = data
   return (
     <div className={aboutStyles.container}>
-      <h1>Greetings! I'm Ajay</h1>
+      <h1 className={aboutStyles.hello}>
+        Greetings! I'm <strong>Ajay</strong>
+      </h1>
       <>{parse(html)}</>
 
       <Accolade
         icon={faGraduationCap}
-        title="Bachelor's of Technology - Computer Science and Engineering"
+        title="Bachelor's of Technology - Computer Science and Engineering (2019-2023)"
         subtitle="Vellore Institute of Technology"
       />
 
       <Accolade
         icon={faBriefcase}
-        title="Frontend Developer Intern"
+        title="Frontend Developer Intern (05/22-07/22)"
         subtitle="Trademarkia, Chennai"
       />
     </div>

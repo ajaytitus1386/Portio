@@ -46,45 +46,73 @@
 
     .loopingTitles {
       color: $font-color;
-      font-size: 2 * $font-size-global;
+      font-size: 1 * $font-size-global;
 
       @include mobile-above {
-        font-size: 3 * $font-size-global;
+        font-size: 2 * $font-size-global;
       }
 
       @include desktop-above {
-        font-size: 5 * $font-size-global;
+        font-size: 4 * $font-size-global;
       }
 
       h1 {
         font-family: $font-mono-stack;
+        text-shadow: 8px 8px 0px rgba($color: #000000, $alpha: 0.5);
       }
     }
 
     .headerImage {
+      display: flex;
+      flex-direction: row;
+
       border-radius: 0;
       overflow: hidden;
       max-height: 1080px;
       max-width: 1920px;
 
-      background-image: $header-gradient;
-
       transition: ease-in-out 300ms;
+
+      transform: scale(120%);
 
       @include tablet-above {
         border-radius: 1rem;
       }
 
-      // opacity: 75%;
+      .clip {
+        flex: 1 1 0;
+        z-index: 1;
+        transition: all ease 500ms;
 
-      //background-color: $secondary-color;
+        filter: grayscale(100%) blur(0.2rem);
+      }
+
+      .clip:hover {
+        //z-index: 2;
+        transform: scale(110%);
+        filter: grayscale(0%);
+      }
+
+      .clip:nth-child(1) {
+        clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+        right: -10%;
+      }
+
+      .clip:nth-child(2) {
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      }
+
+      .clip:nth-child(3) {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        left: -10%;
+      }
     }
 
     .headerTitle {
       position: absolute;
       color: $font-color;
       font-family: $font-stack;
-      font-size: x-large;
+      font-size: $font-size-global;
       text-align: center;
       stroke: white;
       stroke-width: 2px;
