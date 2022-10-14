@@ -1,17 +1,26 @@
 @import "../config";
 @import "../mixins";
 .container {
-  max-width: $safe-width;
+  //max-width: $safe-width;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem;
+
   border-radius: 2rem;
   color: $font-color;
   transition: ease-in 500ms;
+  width: 100%;
+
+  .hello {
+    font-size: 3.5 * $font-size-global;
+    strong {
+      color: $hue-color;
+    }
+  }
 
   @include mobile-above {
     align-items: flex-start;
+    padding: 4rem;
   }
 
   .accolade {
