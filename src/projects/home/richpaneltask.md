@@ -13,6 +13,8 @@ url: https://richpanel-task-frontend-ten.vercel.app/
 
 # Video Plan Subscription App
 
+_September 2022_
+
 A Proof of Concept App that implements a subscription picker and handles payment using the **Stripe API**. This project includes both frontend and backend apps
 
 [Check it out here](https://richpanel-task-frontend-ten.vercel.app/)
