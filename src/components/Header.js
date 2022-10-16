@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import TextLoop from "react-text-loop"
 import { headerImageVariants, headerVariants } from "../global/framerVariants"
@@ -32,6 +32,16 @@ function Header({ imageFiles }) {
   setTimeout(() => {
     setShowWelcome(false)
   }, 2800)
+
+  useEffect(() => {
+    setImageInFocus(1)
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setImageInFocus((imageInFocus + 1) % (imageFiles.length || 1))
+    }, 4000)
+  }, [imageInFocus])
 
   return (
     <AnimatePresence>
