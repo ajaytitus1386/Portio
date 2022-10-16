@@ -41,7 +41,7 @@ function Header({ imageFiles }) {
     setTimeout(() => {
       setImageInFocus((imageInFocus + 1) % (imageFiles.length || 1))
     }, 4000)
-  }, [imageInFocus])
+  }, [imageInFocus, imageFiles.length])
 
   return (
     <AnimatePresence>
