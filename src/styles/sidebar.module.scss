@@ -8,7 +8,7 @@
 .container {
   position: absolute;
   z-index: 150;
-  width: 50%;
+
   overflow-x: hidden !important;
   right: 0;
   height: 100vh;
@@ -21,6 +21,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 2rem 0;
+
+  width: 80%;
 
   @include mobile-above {
     width: 40%;
