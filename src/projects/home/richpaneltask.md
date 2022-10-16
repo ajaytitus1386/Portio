@@ -9,6 +9,7 @@ images:
     ../../images/nextjs/richpaneltask/2.JPG,
   ]
 url: https://richpanel-task-frontend-ten.vercel.app/
+priority: 2
 ---
 
 # Video Plan Subscription App

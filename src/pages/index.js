@@ -8,12 +8,12 @@ import { motion } from "framer-motion"
 import "../styles/global.scss"
 import "../styles/home.scss"
 
-import ProjectCard from "../components/ProjectCard"
 import Header from "../components/Header"
 import Contact from "../components/sections/Contact"
 import SectionHeading from "../components/SectionHeading"
 import About from "../components/sections/About"
 import Expertise from "../components/sections/Expertise"
+import Projects from "../components/sections/Projects"
 
 export default function Home({ data }) {
   const projects = data.projects.nodes
@@ -38,9 +38,7 @@ export default function Home({ data }) {
 
         <div className="container" id="projects">
           <SectionHeading headingText={"PROJECTS"} />
-          {projects.map(project => (
-            <ProjectCard project={project} />
-          ))}
+          <Projects projects={projects} />
         </div>
         <div className="container" id="contact">
           <SectionHeading headingText={"CONTACT"} />
@@ -75,6 +73,7 @@ export const query = graphql`
           slug
           stack
           url
+          priority
           images {
             childImageSharp {
               gatsbyImageData(width: 640, height: 360)
