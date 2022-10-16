@@ -8,7 +8,7 @@ import Particles from "react-tsparticles"
 import { useCallback } from "react"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { fab } from "@fortawesome/free-brands-svg-icons"
+import { fab, faInstagram } from "@fortawesome/free-brands-svg-icons"
 import {
   faGithub,
   faDribbble,
@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import particleConfig from "../data/particles/bubblestars.json"
 
-library.add(fab, faGithub, faDribbble, faLinkedin, faReact)
+library.add(fab, faGithub, faDribbble, faLinkedin, faInstagram, faReact)
 
 export default function Layout({ children }) {
   const particlesInit = useCallback(async engine => {

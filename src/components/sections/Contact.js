@@ -9,6 +9,7 @@ import {
   faGithub,
   faDribbble,
   faLinkedin,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
 
 import * as contactStyles from "../../styles/sections/contact.module.scss"
@@ -162,7 +163,11 @@ export default function Contact({ scrollRef }) {
             url={"https://www.linkedin.com/in/ajay-titus-563b7718b/"}
             faIcon={faLinkedin}
           />
-
+          <ListItem
+            text={"ajaytitus24"}
+            url={"https://www.instagram.com/ajaytitus24"}
+            faIcon={faInstagram}
+          />
           <ListItem
             text={"ajaytitus1386"}
             url={"https://github.com/ajaytitus1386"}
