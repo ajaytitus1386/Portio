@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 
-import "../styles/tooltip.module.scss"
 import * as navStyles from "../styles/nav.module.scss"
 
 const linkVariants = {
