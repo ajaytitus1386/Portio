@@ -110,7 +110,7 @@ function Header({ imageFiles }) {
             <div className={headerStyles.headerTitle}>
               <TextLoop
                 interval={4000}
-                delay={3000}
+                delay={0}
                 springConfig={{ stiffness: 240, damping: 15 }}
                 className={headerStyles.loopingTitles}
               >
