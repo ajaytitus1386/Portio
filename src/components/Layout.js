@@ -20,7 +20,8 @@ import * as layoutStyles from "../styles/layout.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import particleConfig from "../data/particles/bubblestars.json"
-import { faCopyright } from "@fortawesome/free-regular-svg-icons"
+
+import { faCopyright } from "@fortawesome/free-solid-svg-icons"
 
 library.add(fab, faGithub, faDribbble, faLinkedin, faInstagram, faReact)
 

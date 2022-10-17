@@ -4,7 +4,8 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
+
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import {
   faGithub,
   faDribbble,
