@@ -67,14 +67,6 @@ function Navbar() {
             {title}
           </motion.strong>
 
-          <a
-            className={navStyles.wipMsg}
-            data-tooltip="This site is still under development!"
-            href="https://github.com/ajaytitus1386/Portio"
-          >
-            <FontAwesomeIcon icon={faQuestionCircle} />
-          </a>
-
           <ul className={navStyles.navLinks}>
             <NavLink label="Home" href={"/"} />
             <NavLink label="About" href={"#about"} />
