@@ -3,10 +3,10 @@ title: Avalon Logo Design
 category: home
 stack: Illustrator
 slug: illustrator-avalonlogo
-thumb: ../../images/thumbs/AvalonBoard.png
+thumb: ../../images/thumbs/avalonlogo.png
 images:
   [
-    ../../images/illustrator/avalonlogo/Concept 1.png,
+    ../../images/illustrator/avalonlogo/AvalonBoard.png,
     ../../images/illustrator/avalonlogo/VS Mockup 1.png,
   ]
 featureOnHome: true
