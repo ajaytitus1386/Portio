@@ -1,12 +1,13 @@
 const headerVariants = {
   hidden: {
-    height: 0,
+    height: "100vh",
     opacity: 0,
   },
   visible: {
     height: "auto",
     opacity: 1,
     transition: {
+      delay: 2,
       height: {
         duration: 0.8,
       },

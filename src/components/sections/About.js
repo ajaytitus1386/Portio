@@ -1,9 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import parse from "html-react-parser"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 
 import * as aboutStyles from "../../styles/sections/about.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGraduationCap, faBriefcase } from "@fortawesome/free-solid-svg-icons"
+
+const helloVariants = {
+  hidden: {
+    x: -20,
+    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+  },
+  visible: {
+    x: 0,
+    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+  },
+}
 
 function Accolade({ icon, title, subtitle }) {
   return (
@@ -18,12 +31,27 @@ function Accolade({ icon, title, subtitle }) {
 }
 
 function About({ data }) {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  })
+
+  useEffect(() => {
+    if (inView) controls.start("visible")
+  }, [controls, inView])
+
   const { html } = data
   return (
-    <div className={aboutStyles.container}>
-      <h1 className={aboutStyles.hello}>
+    <div className={aboutStyles.container} ref={ref}>
+      <motion.h1
+        variants={helloVariants}
+        initial="hidden"
+        animate={controls}
+        className={aboutStyles.hello}
+      >
         Greetings! I'm <strong>Ajay</strong>
-      </h1>
+      </motion.h1>
       <>{parse(html)}</>
 
       <Accolade

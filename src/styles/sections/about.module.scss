@@ -8,16 +8,22 @@
   border-radius: 2rem;
   color: $font-color;
   transition: ease-in 500ms;
-  width: 100%;
+  width: 90%;
 
   @include mobile-above {
     align-items: flex-start;
-    padding: 4rem;
+
     max-width: $safe-width;
   }
 
   .hello {
-    font-size: 3.5 * $font-size-global;
+    font-size: 3 * $font-size-global;
+    text-align: center;
+
+    @include mobile-above {
+      text-align: start;
+      font-size: 3.5 * $font-size-global;
+    }
     strong {
       color: $hue-color;
     }
@@ -40,11 +46,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       text-align: center;
 
       @include mobile-above {
         text-align: start;
+        align-items: flex-start;
       }
     }
 

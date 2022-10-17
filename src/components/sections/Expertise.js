@@ -38,7 +38,21 @@ const boxVariants = {
   },
 }
 
-const tilesParent = {}
+const tilesParent = {
+  hidden: {
+    x: -20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+}
 
 const tileVariants = {
   hidden: {
@@ -55,12 +69,22 @@ const tileVariants = {
 }
 
 function SkillTag({ label }) {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  })
+
+  useEffect(() => {
+    if (inView) controls.start("visible")
+  }, [controls, inView])
   return (
     <motion.div
       variants={tileVariants}
       initial="hidden"
-      animate="visible"
+      animate={controls}
       className={expertiseStyles.tag}
+      ref={ref}
     >
       {label}
     </motion.div>
@@ -68,12 +92,22 @@ function SkillTag({ label }) {
 }
 
 function ExpertiseBox({ children, heading, icon, skills }) {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  })
+
+  useEffect(() => {
+    if (inView) controls.start("visible")
+  }, [controls, inView])
   return (
     <motion.div
       variants={boxVariants}
       initial="hidden"
-      animate="visible"
+      animate={controls}
       className={expertiseStyles.box}
+      ref={ref}
     >
       <div className={expertiseStyles.boxHead}>
         <FontAwesomeIcon icon={icon} className={expertiseStyles.icon} />
@@ -92,23 +126,12 @@ function ExpertiseBox({ children, heading, icon, skills }) {
 }
 
 function Expertise() {
-  const controls = useAnimation()
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  })
-
-  useEffect(() => {
-    if (inView) controls.start("visible")
-  }, [controls, inView])
-
   return (
     <motion.div
       variants={gridVariants}
       initial="hidden"
-      animate={controls}
+      animate="visible"
       className={expertiseStyles.container}
-      ref={ref}
     >
       <ExpertiseBox
         icon={faCode}
