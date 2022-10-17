@@ -36,22 +36,21 @@ module.exports = {
         background_color: `#ff7f11`,
         theme_color: `#1f5673`,
         display: `standalone`,
-        icon : `static/logo.png`
+        icon: `static/logo.png`,
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
-      rule: {
-        include: /svg/
-      }
-  }
-    }
-    
+        rule: {
+          include: /svg/,
+        },
+      },
+    },
   ],
-  siteMetadata : {
-    title: 'Ajay Titus',
-    description : 'all purpose portfolio',
-    copyright: 'Copyright 2021 Ajay Titus'
-  }
+  siteMetadata: {
+    title: "Ajay Titus",
+    description: "all purpose portfolio",
+    copyright: "Copyright 2022 Ajay Titus",
+  },
 }
