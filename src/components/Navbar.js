@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { motion, useScroll, useSpring } from "framer-motion"
 import Sidebar from "./Sidebar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faQuestionCircle } from "@fortawesome/free-solid-svg-icons"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 import "../styles/tooltip.module.scss"
 import * as navStyles from "../styles/nav.module.scss"
