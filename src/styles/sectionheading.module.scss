@@ -17,7 +17,7 @@
     flex-direction: row;
     writing-mode: vertical-lr;
 
-    top: 10%;
+    top: 0;
     left: 0;
     position: absolute;
   }
@@ -25,11 +25,15 @@
 
 .sectionHeading {
   font-family: $font-heading-stack;
-  font-size: 4 * $font-size-global;
+  font-size: 3 * $font-size-global;
   color: $font-color;
   letter-spacing: 0.8rem;
   text-align: center;
   transition: ease-in-out 200ms;
+
+  @include mobile-above {
+    font-size: 4 * $font-size-global;
+  }
 
   @include laptop-above {
     transform: rotate(180deg);
