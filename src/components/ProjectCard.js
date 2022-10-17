@@ -14,10 +14,7 @@ function ProjectCard({ project }) {
   ]
 
   return (
-    <div
-      key={project.frontmatter.title}
-      className={`${cardStyles.card}`}
-    >
+    <div key={project.frontmatter.title} className={`${cardStyles.card}`}>
       <motion.div
         className={cardStyles.tile}
         variants={tileVariants}
