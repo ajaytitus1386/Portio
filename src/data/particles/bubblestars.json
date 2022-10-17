@@ -1,7 +1,12 @@
 {
+  "fullScreen": {
+    "enable": false,
+    "zIndex": 0
+  },
+  "fpsLimit": 60,
   "particles": {
     "number": {
-      "value": 50,
+      "value": 100,
       "density": {
         "enable": false,
         "area": 500
