@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectCard from "../ProjectCard"
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 function Projects({ projects }) {
   return (
     <>
