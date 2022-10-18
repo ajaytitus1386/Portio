@@ -59,12 +59,7 @@ function Navbar() {
     <div className={navStyles.stickyContainer}>
       <nav className={navStyles.navMain}>
         <div className={navStyles.navItems}>
-          <motion.strong
-            whileHover={{ scale: 1.2 }}
-            className={navStyles.navLogo}
-          >
-            {title}
-          </motion.strong>
+          <strong className={navStyles.navLogo}>{title}</strong>
 
           <ul className={navStyles.navLinks}>
             <NavLink label="Home" href={"/"} />

@@ -30,6 +30,11 @@
     padding: 0rem 0.5rem;
     font-family: $font-heading-stack;
     letter-spacing: 0.4rem;
+    transition: transform ease 400ms;
+
+    &:hover {
+      transform: scale(120%);
+    }
   }
 
   .navLinks {
