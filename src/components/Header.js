@@ -29,12 +29,11 @@ function Header({ imageFiles }) {
   const [showHeader] = useState(true)
   const [imageInFocus, setImageInFocus] = useState(0)
 
-  setTimeout(() => {
-    setShowWelcome(false)
-  }, 2800)
-
   useEffect(() => {
     setImageInFocus(1)
+    setTimeout(() => {
+      setShowWelcome(false)
+    }, 2800)
   }, [])
 
   useEffect(() => {
