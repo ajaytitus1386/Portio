@@ -117,7 +117,7 @@ function ExpertiseBox({ children, heading, icon, skills }) {
       {skills && (
         <motion.div variants={tilesParent} className={expertiseStyles.boxTags}>
           {skills.map(skill => (
-            <SkillTag label={skill} />
+            <SkillTag key={skill} label={skill} />
           ))}
         </motion.div>
       )}

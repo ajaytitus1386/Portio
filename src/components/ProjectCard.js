@@ -55,6 +55,7 @@ function ProjectCard({ project }) {
           >
             {images.map((image, index) => (
               <GatsbyImage
+                key={project.frontmatter.title + index}
                 image={getImage(image)}
                 alt={project.frontmatter.title + index}
                 className={cardStyles.tileImage}

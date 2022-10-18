@@ -11,7 +11,7 @@ function Projects({ projects }) {
             (projB.frontmatter.priority || 9999)
         )
         .map(project => (
-          <ProjectCard project={project} />
+          <ProjectCard key={project.frontmatter.slug} project={project} />
         ))}
     </>
   )
