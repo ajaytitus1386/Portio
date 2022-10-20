@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectCard from "../ProjectCard"
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 function Projects({ projects }) {
   return (
     <>
@@ -11,7 +11,7 @@ function Projects({ projects }) {
             (projB.frontmatter.priority || 9999)
         )
         .map(project => (
-          <ProjectCard project={project} />
+          <ProjectCard key={project.frontmatter.slug} project={project} />
         ))}
     </>
   )

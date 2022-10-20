@@ -1,11 +1,6 @@
 import React from "react"
-// import Navbar from './Navbar'
+
 import { motion, AnimatePresence } from "framer-motion"
-
-import { loadFull } from "tsparticles"
-import Particles from "react-tsparticles"
-
-import { useCallback } from "react"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fab, faInstagram } from "@fortawesome/free-brands-svg-icons"
@@ -19,18 +14,11 @@ import {
 import * as layoutStyles from "../styles/layout.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import particleConfig from "../data/particles/bubblestars.json"
-import { faCopyright } from "@fortawesome/free-regular-svg-icons"
+import { faCopyright } from "@fortawesome/free-solid-svg-icons"
 
 library.add(fab, faGithub, faDribbble, faLinkedin, faInstagram, faReact)
 
 export default function Layout({ children }) {
-  const particlesInit = useCallback(async engine => {
-    await loadFull(engine)
-  }, [])
-
-  const particlesLoaded = useCallback(async container => {}, [])
-
   return (
     <AnimatePresence>
       <div>
@@ -38,16 +26,7 @@ export default function Layout({ children }) {
         {/* Makes anchor tags open a new tab when clicked */}
         <base target="_blank"></base>
 
-        <div className={layoutStyles.content}>
-          <Particles
-            className={layoutStyles.particles}
-            id="tsparticles"
-            init={particlesInit}
-            loaded={particlesLoaded}
-            options={particleConfig}
-          />
-          {children}
-        </div>
+        <div className={layoutStyles.content}>{children}</div>
 
         <div className={layoutStyles.footer}>
           <p>

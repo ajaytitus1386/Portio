@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { tileVariants } from "../global/tileVariants"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+
 import { Carousel } from "react-responsive-carousel"
 import parse from "html-react-parser"
 import { useInView } from "react-intersection-observer"
@@ -55,6 +55,7 @@ function ProjectCard({ project }) {
           >
             {images.map((image, index) => (
               <GatsbyImage
+                key={project.frontmatter.title + index}
                 image={getImage(image)}
                 alt={project.frontmatter.title + index}
                 className={cardStyles.tileImage}

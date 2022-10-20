@@ -29,12 +29,11 @@ function Header({ imageFiles }) {
   const [showHeader] = useState(true)
   const [imageInFocus, setImageInFocus] = useState(0)
 
-  setTimeout(() => {
-    setShowWelcome(false)
-  }, 2800)
-
   useEffect(() => {
-    setImageInFocus(1)
+    setTimeout(() => {
+      setShowWelcome(false)
+      setImageInFocus(1)
+    }, 2000)
   }, [])
 
   useEffect(() => {
@@ -107,18 +106,20 @@ function Header({ imageFiles }) {
               />
             </motion.div>
 
-            <div className={headerStyles.headerTitle}>
-              <TextLoop
-                interval={4000}
-                delay={0}
-                springConfig={{ stiffness: 240, damping: 15 }}
-                className={headerStyles.loopingTitles}
-              >
-                <h1>Developer</h1>
-                <h1>Musician</h1>
-                <h1>Student</h1>
-              </TextLoop>
-            </div>
+            {!showWelcome && (
+              <div className={headerStyles.headerTitle}>
+                <TextLoop
+                  interval={4000}
+                  delay={0}
+                  springConfig={{ stiffness: 240, damping: 15 }}
+                  className={headerStyles.loopingTitles}
+                >
+                  <h1>Developer</h1>
+                  <h1>Musician</h1>
+                  <h1>Student</h1>
+                </TextLoop>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}
