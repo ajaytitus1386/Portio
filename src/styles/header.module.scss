@@ -45,7 +45,7 @@
 
     .loopingTitles {
       color: $font-color;
-      font-size: 2 * $font-size-global;
+      font-size: 1.5 * $font-size-global;
 
       @include mobile-above {
         font-size: 3 * $font-size-global;
