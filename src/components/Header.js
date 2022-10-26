@@ -25,23 +25,15 @@ const welcomeVariants = {
   },
 }
 
-function Header({ imageFiles }) {
+function Header() {
   const [showWelcome, setShowWelcome] = useState(true)
   const [showHeader] = useState(true)
-  const [imageInFocus, setImageInFocus] = useState(0)
 
   useEffect(() => {
     setTimeout(() => {
       setShowWelcome(false)
-      setImageInFocus(1)
     }, 2000)
   }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setImageInFocus((imageInFocus + 1) % (imageFiles.length || 1))
-    }, 4000)
-  }, [imageInFocus, imageFiles.length])
 
   return (
     <AnimatePresence>

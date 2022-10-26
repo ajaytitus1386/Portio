@@ -14,7 +14,6 @@ import SectionHeading from "../components/SectionHeading"
 import About from "../components/sections/About"
 import Expertise from "../components/sections/Expertise"
 import Projects from "../components/sections/Projects"
-import FlexGrid from "../components/FlexGrid"
 
 export default function Home({ data }) {
   const projects = data.projects.nodes
@@ -22,10 +21,10 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <Header imageFiles={data.frontImages.nodes} />
+      <Header />
       <Navbar />
       <motion.div className="main">
-        <FlexGrid />
+        {/* <FlexGrid /> */}
 
         <div className="container" id="about">
           <SectionHeading headingText={"ABOUT"} />
@@ -52,7 +51,9 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query HomePage {
-    frontImages: allFile(filter: { relativePath: { regex: "/^front/" } }) {
+    frontImages: allFile(
+      filter: { relativePath: { regex: "/^front_center/" } }
+    ) {
       nodes {
         childImageSharp {
           gatsbyImageData
