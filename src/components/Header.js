@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import TextLoop from "react-text-loop"
-import { headerImageVariants, headerVariants } from "../global/framerVariants"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { headerVariants } from "../global/framerVariants"
 
 import * as headerStyles from "../styles/header.module.scss"
 
+import ThreeHeader from "./ThreeHeader"
+
 const welcomeVariants = {
   hidden: {
-    scale: 0,
+    opacity: 0,
   },
   visible: {
-    scale: 1,
+    opacity: 1,
     transition: {
       type: "spring",
       damping: 20,
@@ -20,7 +21,7 @@ const welcomeVariants = {
     },
   },
   exit: {
-    scale: 0,
+    opacity: 0,
   },
 }
 
@@ -65,7 +66,7 @@ function Header({ imageFiles }) {
               </motion.div>
             )}
           </AnimatePresence>
-
+          <ThreeHeader />
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -78,34 +79,6 @@ function Header({ imageFiles }) {
             }}
             className={headerStyles.headerItems}
           >
-            <motion.div
-              variants={headerImageVariants}
-              initial="visible"
-              className={headerStyles.headerImage}
-            >
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 0 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[0])}
-                alt="Front-1"
-              />
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 1 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[1])}
-                alt="Front-2"
-              />
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 2 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[2])}
-                alt="Front-3"
-              />
-            </motion.div>
-
             {!showWelcome && (
               <div className={headerStyles.headerTitle}>
                 <TextLoop
