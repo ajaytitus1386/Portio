@@ -14,6 +14,7 @@ import SectionHeading from "../components/SectionHeading"
 import About from "../components/sections/About"
 import Expertise from "../components/sections/Expertise"
 import Projects from "../components/sections/Projects"
+import FlexGrid from "../components/FlexGrid"
 
 export default function Home({ data }) {
   const projects = data.projects.nodes
@@ -24,11 +25,11 @@ export default function Home({ data }) {
       <Header imageFiles={data.frontImages.nodes} />
       <Navbar />
       <motion.div className="main">
-        {/* <FlexGrid /> */}
+        <FlexGrid />
 
         <div className="container" id="about">
           <SectionHeading headingText={"ABOUT"} />
-          <About data={about} />
+          <About data={about} imageFile={data.frontImages.nodes[0]} />
         </div>
 
         <div className="container" id="expertise">
