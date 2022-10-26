@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { motion, useScroll, useSpring } from "framer-motion"
 import Sidebar from "./Sidebar"
@@ -41,6 +41,7 @@ function Navbar() {
   `)
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isSticky, setIsSticky] = useState(false)
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
@@ -48,15 +49,27 @@ function Navbar() {
 
   const { title } = data.site.siteMetadata
 
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress, scrollY } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   })
 
+  useEffect(() => {
+    return scrollY.onChange(latest => {
+      if (latest >= window.innerHeight - window.innerHeight / 10)
+        setIsSticky(true)
+      else setIsSticky(false)
+    })
+  }, [scrollY])
+
   return (
-    <div className={navStyles.stickyContainer}>
+    <div
+      className={`${navStyles.wrapper} ${
+        isSticky ? navStyles.stickyContainer : navStyles.absoluteContainer
+      }`}
+    >
       <nav className={navStyles.navMain}>
         <div className={navStyles.navItems}>
           <strong className={navStyles.navLogo}>{title}</strong>
@@ -76,11 +89,11 @@ function Navbar() {
             <FontAwesomeIcon className={navStyles.toggleIcon} icon={faBars} />
           </button>
         </div>
-        <motion.div
-          className={navStyles.progressBar}
-          style={{ scaleX: scaleX }}
-        />
       </nav>
+      <motion.div
+        className={navStyles.progressBar}
+        style={{ scaleX: scaleX }}
+      />
 
       <Sidebar isOpen={isSidebarOpen} />
     </div>
