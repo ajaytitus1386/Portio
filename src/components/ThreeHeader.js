@@ -1,17 +1,17 @@
-import {
-  // OrbitControls,
-  Plane,
-  // useHelper
-} from "@react-three/drei"
+// import {
+//   // OrbitControls,
+//   Plane,
+//   // useHelper
+// } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import React, { useRef } from "react"
-import {
-  // BoxHelper,
-  // PlaneHelper,
-  // PointLightHelper,
-  // SpotLightHelper,
-  FrontSide,
-} from "three"
+// import {
+//   // BoxHelper,
+//   // PlaneHelper,
+//   // PointLightHelper,
+//   // SpotLightHelper,
+//   FrontSide,
+// } from "three"
 
 import {
   EffectComposer,
@@ -26,41 +26,41 @@ const colors = {
   matteGrey: 0x212121,
 }
 
-function Box({ position, dimensions, rotation, castShadow = true }) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef()
+// function Box({ position, dimensions, rotation, castShadow = true }) {
+//   // This reference will give us direct access to the mesh
+//   const mesh = useRef()
 
-  return (
-    <mesh
-      position={position}
-      ref={mesh}
-      scale={1}
-      rotation={rotation}
-      castShadow={castShadow}
-      receiveShadow
-    >
-      <boxGeometry args={dimensions} />
-      <meshStandardMaterial color={colors.matteGrey} />
-    </mesh>
-  )
-}
+//   return (
+//     <mesh
+//       position={position}
+//       ref={mesh}
+//       scale={1}
+//       rotation={rotation}
+//       castShadow={castShadow}
+//       receiveShadow
+//     >
+//       <boxGeometry args={dimensions} />
+//       <meshStandardMaterial color={colors.matteGrey} />
+//     </mesh>
+//   )
+// }
 
-function Pipe({ position }) {
-  const cylinderRef = useRef()
+// function Pipe({ position }) {
+//   const cylinderRef = useRef()
 
-  return (
-    <mesh
-      ref={cylinderRef}
-      position={position}
-      rotation={[Math.PI / 6, 0, Math.PI / 6]}
-      castShadow
-      receiveShadow
-    >
-      <cylinderBufferGeometry args={[0.5, 0.5, 2, 32]} />
-      <meshStandardMaterial color={colors.matteGrey} />
-    </mesh>
-  )
-}
+//   return (
+//     <mesh
+//       ref={cylinderRef}
+//       position={position}
+//       rotation={[Math.PI / 6, 0, Math.PI / 6]}
+//       castShadow
+//       receiveShadow
+//     >
+//       <cylinderBufferGeometry args={[0.5, 0.5, 2, 32]} />
+//       <meshStandardMaterial color={colors.matteGrey} />
+//     </mesh>
+//   )
+// }
 
 function Bulb({ position }) {
   const pointLightRef = useRef(null)
@@ -112,61 +112,61 @@ function Bulb({ position }) {
   )
 }
 
-function StageLight({
-  position,
-  color = colors.neonRed,
-  distance = 7,
-  castShadow = true,
-}) {
-  const pointLightRef = useRef(null)
+// function StageLight({
+//   position,
+//   color = colors.neonRed,
+//   distance = 7,
+//   castShadow = true,
+// }) {
+//   const pointLightRef = useRef(null)
 
-  // useHelper(pointLightRef, PointLightHelper, 1, "blue")
-  return (
-    <pointLight
-      ref={pointLightRef}
-      position={position}
-      color={color}
-      intensity={0.8}
-      decay={0.5}
-      distance={distance}
-      castShadow={castShadow}
-    />
-  )
-}
+//   // useHelper(pointLightRef, PointLightHelper, 1, "blue")
+//   return (
+//     <pointLight
+//       ref={pointLightRef}
+//       position={position}
+//       color={color}
+//       intensity={0.8}
+//       decay={0.5}
+//       distance={distance}
+//       castShadow={castShadow}
+//     />
+//   )
+// }
 
-function Floor() {
-  const meshRef = useRef()
+// function Floor() {
+//   const meshRef = useRef()
 
-  // useHelper(meshRef, PlaneHelper, 1, "green")
+//   // useHelper(meshRef, PlaneHelper, 1, "green")
 
-  return (
-    <Plane
-      ref={meshRef}
-      position={[0, -4, 0]}
-      rotation={[-Math.PI / 2, 0, 0]}
-      scale={[50, 50, 50]}
-      receiveShadow
-    >
-      <meshStandardMaterial color={0x2e2e2e} side={FrontSide} />
-    </Plane>
-  )
-}
+//   return (
+//     <Plane
+//       ref={meshRef}
+//       position={[0, -4, 0]}
+//       rotation={[-Math.PI / 2, 0, 0]}
+//       scale={[50, 50, 50]}
+//       receiveShadow
+//     >
+//       <meshStandardMaterial color={0x2e2e2e} side={FrontSide} />
+//     </Plane>
+//   )
+// }
 
-function Wall(props) {
-  const meshRef = useRef()
+// function Wall(props) {
+//   const meshRef = useRef()
 
-  return (
-    <Plane
-      ref={meshRef}
-      position={[0, 0, -10]}
-      rotation={[0, 0, 0]}
-      scale={[50, 50, 50]}
-      {...props}
-    >
-      <meshStandardMaterial color={0x2e2e2e} side={FrontSide} />
-    </Plane>
-  )
-}
+//   return (
+//     <Plane
+//       ref={meshRef}
+//       position={[0, 0, -10]}
+//       rotation={[0, 0, 0]}
+//       scale={[50, 50, 50]}
+//       {...props}
+//     >
+//       <meshStandardMaterial color={0x2e2e2e} side={FrontSide} />
+//     </Plane>
+//   )
+// }
 
 const ThreeHeader = () => {
   return (
