@@ -175,23 +175,23 @@ const ThreeHeader = () => {
 
       <ambientLight intensity={1} color={0xffffff} />
 
-      <StageLight position={[-3, -3, 1]} color={colors.neonOrange} />
+      {/* <StageLight position={[-3, -3, 1]} color={colors.neonOrange} /> */}
       {/* <StageLight
         position={[3, 3, -1]}
         color={colors.beauBlue}
         
       /> */}
-      <StageLight position={[-3, 3, 1]} color={colors.beauBlue} distance={7} />
+      {/* <StageLight position={[-3, 3, 1]} color={colors.beauBlue} distance={7} /> */}
       {/* <StageLight
         position={[3, -3, -1]}
         color={colors.beauBlue}
         
       /> */}
-      <StageLight position={[0, -1, -2]} color={colors.neonRed} distance={4} />
+      {/* <StageLight position={[0, -1, -2]} color={colors.neonRed} distance={4} /> */}
 
       <Bulb position={[1.2, 1.2, 0.8]} />
 
-      <Box
+      {/* <Box
         position={[-1.5, 2, -1]}
         dimensions={[1.5, 1.5, 1.5]}
         rotation={[0, -Math.PI / 4, Math.PI / 4]}
@@ -208,10 +208,10 @@ const ThreeHeader = () => {
         position={[1.0, -2.5, -0.5]}
         dimensions={[2, 1, 1]}
         rotation={[0, 0, Math.PI / 3]}
-      />
+      /> */}
 
-      <Floor />
-      <Wall />
+      {/* <Floor />
+      <Wall /> */}
 
       <EffectComposer>
         <DepthOfField
