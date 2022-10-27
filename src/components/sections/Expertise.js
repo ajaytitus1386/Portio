@@ -136,7 +136,7 @@ function Expertise() {
       <ExpertiseBox
         icon={faCode}
         heading="Software Development"
-        skills={["Java", "C++", "Python", "NodeJS", "SQL"]}
+        skills={["Java", "C++", "Python", "NodeJS", "SQL", "MongoDB"]}
       >
         <div className={expertiseStyles.boxContent}>
           Educated in Object Oriented Programming and in Data Structures and
@@ -145,7 +145,7 @@ function Expertise() {
       </ExpertiseBox>
       <ExpertiseBox
         icon={faReact}
-        heading="Web Frontend React"
+        heading="React Web Frontend"
         skills={["NextJS", "TailwindCSS", "Sass", "Typescript"]}
       >
         <div className={expertiseStyles.boxContent}>
@@ -156,7 +156,7 @@ function Expertise() {
       <ExpertiseBox
         icon={faMobile}
         heading="Mobile App Development"
-        skills={["Flutter", "BLoC", "Dart", "Firebase"]}
+        skills={["Flutter", "BLoC", "Dart", "Firebase", "React Native"]}
       >
         <div className={expertiseStyles.boxContent}>
           Diving into the world of mobile applications with a focus on

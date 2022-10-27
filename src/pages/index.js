@@ -21,14 +21,14 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <Header imageFiles={data.frontImages.nodes} />
+      <Header />
       <Navbar />
       <motion.div className="main">
         {/* <FlexGrid /> */}
 
         <div className="container" id="about">
           <SectionHeading headingText={"ABOUT"} />
-          <About data={about} />
+          <About data={about} imageFile={data.frontImages.nodes[0]} />
         </div>
 
         <div className="container" id="expertise">
@@ -51,7 +51,9 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query HomePage {
-    frontImages: allFile(filter: { relativePath: { regex: "/^front/" } }) {
+    frontImages: allFile(
+      filter: { relativePath: { regex: "/^front_center/" } }
+    ) {
       nodes {
         childImageSharp {
           gatsbyImageData
