@@ -1,10 +1,22 @@
 @import "config";
 @import "mixins";
 
-.stickyContainer {
+.wrapper {
   z-index: 100;
-  position: sticky;
+  width: 100%;
+  transition: background-color 500ms ease;
+}
+
+.stickyContainer {
+  position: fixed;
   top: 0;
+  background-color: rgba($color: $secondary-color, $alpha: 0.25);
+}
+
+.absoluteContainer {
+  position: absolute;
+  top: calc(100vh - $nav-height);
+  background-color: $primary-color;
 }
 
 .navMain {
@@ -12,7 +24,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: $primary-light-color;
+  height: $nav-height;
+  -webkit-backdrop-filter: blur(0.2rem);
+  backdrop-filter: blur(0.2rem);
 }
 
 .navItems {
