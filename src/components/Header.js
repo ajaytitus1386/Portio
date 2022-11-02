@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import TextLoop from "react-text-loop"
-import { headerImageVariants, headerVariants } from "../global/framerVariants"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import * as headerStyles from "../styles/header.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLeftRight } from "@fortawesome/free-solid-svg-icons"
 
 const welcomeVariants = {
   hidden: {
@@ -24,34 +23,28 @@ const welcomeVariants = {
   },
 }
 
-function Header({ imageFiles }) {
+function Header() {
   const [showWelcome, setShowWelcome] = useState(true)
   const [showHeader] = useState(true)
-  const [imageInFocus, setImageInFocus] = useState(0)
+
+  const [sliderWidth, setSliderWidth] = useState(70)
 
   useEffect(() => {
     setTimeout(() => {
       setShowWelcome(false)
-      setImageInFocus(1)
     }, 2000)
   }, [])
 
-  useEffect(() => {
-    setTimeout(() => {
-      setImageInFocus((imageInFocus + 1) % (imageFiles.length || 1))
-    }, 4000)
-  }, [imageInFocus, imageFiles.length])
+  const handleSliderMove = e => {
+    const percent = (e.clientX / window.innerWidth) * 100
+    setSliderWidth(percent)
+    console.log(percent)
+  }
 
   return (
     <AnimatePresence>
       {showHeader && (
-        <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className={headerStyles.header}
-        >
+        <div className={headerStyles.header}>
           <AnimatePresence>
             {showWelcome && (
               <motion.div
@@ -77,51 +70,38 @@ function Header({ imageFiles }) {
               delay: 3,
             }}
             className={headerStyles.headerItems}
+            onMouseMove={e => handleSliderMove(e)}
+            onTouchMove={e => handleSliderMove(e.touches[0])}
           >
             <motion.div
-              variants={headerImageVariants}
-              initial="visible"
-              className={headerStyles.headerImage}
+              style={{ width: `${sliderWidth}%` }}
+              className={headerStyles.onion}
             >
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 0 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[0])}
-                alt="Front-1"
-              />
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 1 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[1])}
-                alt="Front-2"
-              />
-              <GatsbyImage
-                className={`${headerStyles.clip}  ${
-                  imageInFocus === 2 ? headerStyles.focus : ""
-                }`}
-                image={getImage(imageFiles[2])}
-                alt="Front-3"
-              />
+              <h1>
+                Hello There, I'm Ajay Titus
+                <br />
+                <span>Frontend Developer</span>
+              </h1>
             </motion.div>
 
-            {!showWelcome && (
-              <div className={headerStyles.headerTitle}>
-                <TextLoop
-                  interval={4000}
-                  delay={0}
-                  springConfig={{ stiffness: 240, damping: 15 }}
-                  className={headerStyles.loopingTitles}
-                >
-                  <h1>Developer</h1>
-                  <h1>Musician</h1>
-                  <h1>Student</h1>
-                </TextLoop>
-              </div>
-            )}
+            <div className={headerStyles.onion}>
+              <h1>
+                Hello There, I'm Ajay Titus
+                <br />
+                <span>Software Engineer</span>
+              </h1>
+            </div>
+            <motion.div
+              style={{ left: `calc(${sliderWidth}% - 0.75rem)` }}
+              className={headerStyles.sliderHandle}
+            >
+              <FontAwesomeIcon
+                icon={faLeftRight}
+                className={headerStyles.icon}
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   )

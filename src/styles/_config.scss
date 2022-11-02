@@ -9,6 +9,7 @@ $primary-color: #1a1a1a;
 $primary-color-50: #1a1a1a88;
 $secondary-color: #212529;
 $hue-color: #ff7f11;
+$hue-secondary-color: #2d9eb5;
 $hue-gradient: linear-gradient(
   90deg,
   hsla(29, 92%, 70%, 1) 0%,
@@ -34,9 +35,10 @@ $light-bg-color: rgb(248, 249, 250, 0.3);
 
 //Fonts
 $font-stack: "Work Sans", sans-serif;
-$font-heading-stack: "Staatliches", cursive;
+$font-heading-stack: "Staatliches", sans-serif;
 $font-color: white;
 $font-mono-stack: "Oxygen Mono", monospace;
+$font-strong-stack: "Rubik", sans-serif;
 
 //Constants
 $safe-width: 70%;

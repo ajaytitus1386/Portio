@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import parse from "html-react-parser"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import * as aboutStyles from "../../styles/sections/about.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -30,7 +31,7 @@ function Accolade({ icon, title, subtitle }) {
   )
 }
 
-function About({ data }) {
+function About({ data, imageFile }) {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -43,28 +44,33 @@ function About({ data }) {
 
   const { html } = data
   return (
-    <div className={aboutStyles.container} ref={ref}>
-      <motion.h1
-        variants={helloVariants}
-        initial="hidden"
-        animate={controls}
-        className={aboutStyles.hello}
-      >
-        Greetings! I'm <strong>Ajay</strong>
-      </motion.h1>
-      <>{parse(html)}</>
+    <div className={aboutStyles.duet}>
+      <div className={aboutStyles.container} ref={ref}>
+        <motion.h1
+          variants={helloVariants}
+          initial="hidden"
+          animate={controls}
+          className={aboutStyles.hello}
+        >
+          So Who <strong>Am</strong> I?
+        </motion.h1>
+        <>{parse(html)}</>
 
-      <Accolade
-        icon={faGraduationCap}
-        title="Bachelor's of Technology - Computer Science and Engineering (2019-2023)"
-        subtitle="Vellore Institute of Technology"
-      />
+        <Accolade
+          icon={faGraduationCap}
+          title="Bachelor's of Technology - Computer Science and Engineering (2019-2023)"
+          subtitle="Vellore Institute of Technology"
+        />
 
-      <Accolade
-        icon={faBriefcase}
-        title="Frontend Developer Intern (05/22-07/22)"
-        subtitle="Trademarkia, Chennai"
-      />
+        <Accolade
+          icon={faBriefcase}
+          title="Frontend Developer Intern (05/22-07/22)"
+          subtitle="Trademarkia, Chennai"
+        />
+      </div>
+      <div className={aboutStyles.photoFrame}>
+        <GatsbyImage alt="me" image={getImage(imageFile)} />
+      </div>
     </div>
   )
 }

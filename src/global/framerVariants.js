@@ -4,7 +4,7 @@ const headerVariants = {
     opacity: 0,
   },
   visible: {
-    height: "auto",
+    height: "100vh",
     opacity: 1,
     transition: {
       delay: 2,

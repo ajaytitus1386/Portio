@@ -7,7 +7,6 @@ import * as errorStyles from "../styles/404.module.scss"
 export default function NotFound() {
   return (
     <Layout>
-      <Navbar />
       <div className={errorStyles.main}>
         <h1 className={errorStyles.heading}>404 Error</h1>
         <p>

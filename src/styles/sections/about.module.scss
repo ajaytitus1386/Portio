@@ -1,5 +1,27 @@
 @import "../config";
 @import "../mixins";
+
+.duet {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+
+  @include tablet-above {
+    flex-direction: row;
+    max-width: $safe-width;
+  }
+}
+
+.photoFrame {
+  width: 40%;
+  height: 40%;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 0.5rem solid $primary-color-50;
+}
+
 .container {
   display: flex;
   flex-direction: column;
