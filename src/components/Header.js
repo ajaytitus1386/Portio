@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import * as headerStyles from "../styles/header.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLeftRight } from "@fortawesome/free-solid-svg-icons"
 
 const welcomeVariants = {
   hidden: {
@@ -21,24 +23,17 @@ const welcomeVariants = {
   },
 }
 
-function Header({ imageFiles }) {
+function Header() {
   const [showWelcome, setShowWelcome] = useState(true)
   const [showHeader] = useState(true)
-  const [imageInFocus, setImageInFocus] = useState(0)
+
   const [sliderWidth, setSliderWidth] = useState(70)
 
   useEffect(() => {
     setTimeout(() => {
       setShowWelcome(false)
-      setImageInFocus(1)
     }, 2000)
   }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setImageInFocus((imageInFocus + 1) % (imageFiles.length || 1))
-    }, 4000)
-  }, [imageInFocus, imageFiles.length])
 
   const handleSliderMove = e => {
     const percent = (e.clientX / window.innerWidth) * 100
@@ -97,9 +92,14 @@ function Header({ imageFiles }) {
               </h1>
             </div>
             <motion.div
-              style={{ left: `calc(${sliderWidth}% - 0.5rem)` }}
+              style={{ left: `calc(${sliderWidth}% - 0.75rem)` }}
               className={headerStyles.sliderHandle}
-            ></motion.div>
+            >
+              <FontAwesomeIcon
+                icon={faLeftRight}
+                className={headerStyles.icon}
+              />
+            </motion.div>
           </motion.div>
         </div>
       )}

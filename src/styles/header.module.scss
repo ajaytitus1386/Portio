@@ -48,12 +48,24 @@
 
     .sliderHandle {
       position: absolute;
-      width: 1rem;
-      height: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
       background-color: $font-color;
       transition: left ease 150ms;
       z-index: 3;
       border-radius: 100%;
+
+      display: grid;
+      place-items: center;
+
+      @include laptop-above {
+        display: none;
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+      }
     }
 
     .onion {
@@ -98,9 +110,12 @@
         left: 15vw;
         position: absolute;
 
+        @include laptop-above {
+          font-size: 4 * $font-size-global;
+        }
+
         @include tablet-above {
           font-size: 6 * $font-size-global;
-          left: 20vw;
         }
         span {
           font-family: $font-heading-stack;
