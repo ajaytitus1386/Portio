@@ -39,9 +39,7 @@
     "react-markdown": "^8.0.3",
     "react-responsive-carousel": "^3.2.23",
     "react-text-loop": "^2.3.0",
-    "react-tsparticles": "^2.3.2",
-    "sass": "^1.55.0",
-    "tsparticles": "^2.3.2"
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "prettier": "2.3.2"
