@@ -52,7 +52,7 @@ function About({ data, imageFile }) {
           animate={controls}
           className={aboutStyles.hello}
         >
-          So Who <strong>Am</strong> I?
+          A <strong>Brief</strong> Introduction
         </motion.h1>
         <>{parse(html)}</>
 
@@ -66,6 +66,12 @@ function About({ data, imageFile }) {
           icon={faBriefcase}
           title="Frontend Developer Intern (05/22-07/22)"
           subtitle="Trademarkia, Chennai"
+        />
+
+        <Accolade
+          icon={faBriefcase}
+          title="Frontend Developer (11/22-05/23)"
+          subtitle="Edvora, Noida"
         />
       </div>
       <div className={aboutStyles.photoFrame}>
