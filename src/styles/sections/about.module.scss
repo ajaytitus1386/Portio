@@ -39,8 +39,8 @@
   }
 
   .hello {
-    font-size: 3 * $font-size-global;
-    text-align: center;
+    font-size: 2 * $font-size-global;
+    text-align: start;
 
     @include mobile-above {
       text-align: start;
@@ -88,6 +88,7 @@
     }
 
     h2 {
+      font-size: $font-size-global;
       color: $font-color;
       opacity: 0.8;
     }
@@ -100,6 +101,14 @@
 
     @include mobile-above {
       font-size: 3 * $font-size-global;
+    }
+  }
+
+  h3 {
+    font-size: 1 * $font-size-global;
+
+    @include mobile-above {
+      font-size: 2 * $font-size-global;
     }
   }
 

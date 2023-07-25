@@ -7,6 +7,7 @@
 
   column-gap: 0.5rem;
   row-gap: 0.5rem;
+  padding: 0 1rem;
 
   @include laptop-above {
     width: $safe-width;
