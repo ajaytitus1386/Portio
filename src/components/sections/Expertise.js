@@ -146,7 +146,7 @@ function Expertise() {
       <ExpertiseBox
         icon={faReact}
         heading="Web Frontend React"
-        skills={["NextJS", "TailwindCSS", "Sass", "Typescript"]}
+        skills={["NextJS", "TailwindCSS", "Sass", "Typescript", "Redux"]}
       >
         <div className={expertiseStyles.boxContent}>
           Driven by a passion for delivering a sublime user experience with over
