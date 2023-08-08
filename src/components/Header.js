@@ -5,6 +5,7 @@ import * as headerStyles from "../styles/header.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLeftRight } from "@fortawesome/free-solid-svg-icons"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import ScrollDown from "./ScrollDown"
 
 const welcomeVariants = {
   hidden: {
@@ -112,6 +113,7 @@ function Header({ imageFile1, imageFile2 }) {
               style={{ width: `${sliderWidth}%` }}
               className={headerStyles.onion}
             >
+              <ScrollDown />
               <h1>
                 Hello There, I'm Ajay Titus
                 <br />
@@ -133,6 +135,7 @@ function Header({ imageFile1, imageFile2 }) {
             </motion.div>
 
             <div className={headerStyles.onion}>
+              <ScrollDown />
               <h1>
                 Hello There, I'm Ajay Titus
                 <br />
