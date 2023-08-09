@@ -136,7 +136,7 @@ function Expertise() {
       <ExpertiseBox
         icon={faCode}
         heading="Software Development"
-        skills={["Java", "C++", "Python", "NodeJS", "SQL"]}
+        skills={["Java", "C++", "Python", "NodeJS", "SQL", "PostgreSQL"]}
       >
         <div className={expertiseStyles.boxContent}>
           Educated in Object Oriented Programming and in Data Structures and
@@ -146,7 +146,15 @@ function Expertise() {
       <ExpertiseBox
         icon={faReact}
         heading="Web Frontend React"
-        skills={["NextJS", "TailwindCSS", "Sass", "Typescript"]}
+        skills={[
+          "NextJS",
+          "TailwindCSS",
+          "Sass",
+          "Typescript",
+          "Redux",
+          "Vercel",
+          "Cloudflare",
+        ]}
       >
         <div className={expertiseStyles.boxContent}>
           Driven by a passion for delivering a sublime user experience with over

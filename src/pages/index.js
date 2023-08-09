@@ -21,7 +21,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <Header />
+      <Header imageFile1={data.onionDay} imageFile2={data.onionSunset} />
       <Navbar />
       <motion.div className="main">
         {/* <FlexGrid /> */}
@@ -52,6 +52,16 @@ export default function Home({ data }) {
 export const query = graphql`
   query HomePage {
     frontImage: file(relativePath: { regex: "/^front_left/" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    onionDay: file(relativePath: { regex: "/^Onion-Day/" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    onionSunset: file(relativePath: { regex: "/^Onion-Sunset/" }) {
       childImageSharp {
         gatsbyImageData
       }

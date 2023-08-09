@@ -64,13 +64,13 @@ function About({ data, imageFile }) {
 
         <Accolade
           icon={faBriefcase}
-          title="Frontend Developer Intern (05/22-07/22)"
+          title="Frontend Internship (05/22-07/22)"
           subtitle="Trademarkia, Chennai"
         />
 
         <Accolade
           icon={faBriefcase}
-          title="Frontend Developer (11/22-05/23)"
+          title="Frontend Developer Intern (11/22-05/23)"
           subtitle="Edvora, Noida"
         />
       </div>

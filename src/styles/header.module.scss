@@ -52,7 +52,7 @@
       height: 1.5rem;
       background-color: $font-color;
       transition: left ease 150ms;
-      z-index: 3;
+      z-index: 11;
       border-radius: 100%;
 
       display: grid;
@@ -69,8 +69,9 @@
     }
 
     .onion {
-      display: grid;
-      place-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       overflow: hidden;
       position: absolute;
@@ -83,39 +84,58 @@
 
       &:nth-child(1) {
         background-color: $primary-color;
-        z-index: 2;
+        z-index: 10;
 
         span {
-          color: $hue-secondary-color;
+          background: -webkit-linear-gradient(
+            45deg,
+            #90c3c8 0%,
+            $hue-secondary-color 25%,
+            #1f5673 75%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
       &:nth-child(2) {
-        background-color: rgba($color: $hue-secondary-color, $alpha: 0.5);
-
+        background: linear-gradient(
+          45deg,
+          #90c3c8 0%,
+          $hue-secondary-color 25%,
+          #1f5673 75%
+        );
         h1 {
           color: $primary-color;
         }
         span {
-          color: $hue-color;
+          background: $hue-gradient;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
       h1 {
         color: $font-color;
-        font-size: 3 * $font-size-global;
+        font-size: 2 * $font-size-global;
         font-family: $font-strong-stack;
 
-        width: 80vw;
-        left: 15vw;
+        width: 50vw;
+        left: 5vw;
+        top: 25%;
         position: absolute;
 
         @include laptop-above {
+          top: unset;
+          width: 30vw;
           font-size: 4 * $font-size-global;
         }
 
         @include tablet-above {
-          font-size: 6 * $font-size-global;
+          top: unset;
+          font-size: 5 * $font-size-global;
         }
         span {
           font-family: $font-heading-stack;
@@ -125,6 +145,64 @@
           @include mobile-above {
             white-space: nowrap;
           }
+        }
+      }
+
+      .onionImage {
+        position: absolute;
+        left: 30vw;
+        bottom: 25%;
+        transform: translateY(50%);
+        width: 240px;
+        height: 240px;
+
+        @include mobile-above {
+          left: 50vw;
+          bottom: 50%;
+          width: 720px;
+          height: 720px;
+        }
+
+        @include tablet-above {
+          left: 50vw;
+          bottom: 50%;
+          width: 640px;
+          height: 640px;
+        }
+
+        .image {
+          position: absolute;
+          z-index: 5;
+          width: 240px;
+          height: 240px;
+
+          @include mobile-above {
+            width: 720px;
+            height: 720px;
+          }
+
+          @include tablet-above {
+            width: 640px;
+            height: 640px;
+          }
+        }
+
+        .blob {
+          position: absolute;
+          z-index: 2;
+          scale: 1.2;
+        }
+
+        .shadow {
+          position: absolute;
+          bottom: 10%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-100%);
+          z-index: 3;
+          background: rgba($color: #000000, $alpha: 0.45);
+          width: 75%;
+          height: 1rem;
+          border-radius: 50%;
         }
       }
     }

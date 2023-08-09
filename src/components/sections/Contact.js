@@ -165,11 +165,6 @@ export default function Contact({ scrollRef }) {
             faIcon={faLinkedin}
           />
           <ListItem
-            text={"ajaytitus24"}
-            url={"https://www.instagram.com/ajaytitus24"}
-            faIcon={faInstagram}
-          />
-          <ListItem
             text={"ajaytitus1386"}
             url={"https://github.com/ajaytitus1386"}
             faIcon={faGithub}
