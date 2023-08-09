@@ -72,10 +72,12 @@ function Navbar() {
     >
       <nav className={navStyles.navMain}>
         <div className={navStyles.navItems}>
-          <strong className={navStyles.navLogo}>{title}</strong>
+          <a target="_self" href="/" style={{ color: "inherit" }}>
+            <strong className={navStyles.navLogo}>{title}</strong>
+          </a>
 
           <ul className={navStyles.navLinks}>
-            <NavLink label="Home" href={"/"} />
+            <NavLink label="Home" href={"#"} />
             <NavLink label="About" href={"#about"} />
             <NavLink label="Expertise" href={"#expertise"} />
             <NavLink label="Projects" href={"#projects"} />
