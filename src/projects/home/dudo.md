@@ -1,9 +1,9 @@
 ---
 title: Dudo
 category: home
-stack: NextJS | NodeJS | Socket.IO | PostgreSQL | Prisma
+stack: NextJS | Socket.IO | PostgreSQL | Prisma
 slug: nextjs-dudo
-thumb: ../../images/thumbs/invoicer.png
+thumb: ../../images/thumbs/dudo.png
 images:
   [
     ../../images/nextjs/dudo/dudo_1.png,
@@ -11,7 +11,7 @@ images:
     ../../images/nextjs/dudo/dudo_3.png,
   ]
 url: https://dudo.ajaytitus.com/
-priority: 1
+priority: 2
 ---
 
 # Liar's Dice
