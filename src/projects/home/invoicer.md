@@ -11,7 +11,7 @@ images:
     ../../images/nextjs/invoicer/3.png,
   ]
 url: https://invoice-generator-dusky.vercel.app/
-priority: 2
+priority: 4
 ---
 
 # Invoice Maker Concept App
