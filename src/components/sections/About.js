@@ -73,6 +73,12 @@ function About({ data, imageFile }) {
           title="Frontend Developer Intern (11/22-05/23)"
           subtitle="Edvora, Noida"
         />
+
+        <Accolade
+          icon={faBriefcase}
+          title="Fullstack Developer (11/23-Present)"
+          subtitle="Tarsense Technologies, Bengaluru"
+        />
       </div>
       <div className={aboutStyles.photoFrame}>
         <GatsbyImage alt="me" image={getImage(imageFile)} />

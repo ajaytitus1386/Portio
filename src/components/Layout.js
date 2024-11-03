@@ -31,7 +31,7 @@ export default function Layout({ children }) {
         <div className={layoutStyles.footer}>
           <p>
             <FontAwesomeIcon icon={faCopyright} />
-            2022 Ajay Titus
+            2025 Ajay Titus
             <br />
             Made with Passion!
           </p>
