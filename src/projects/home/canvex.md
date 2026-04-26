@@ -15,6 +15,6 @@ priority: 1
 
 # Collaborative Pixel Artboard
 
-Paint together with your friends to build pixel perfect masterpieces. Everybody gets to paint a set amount per day so collaborate daily to make 
+Paint together with your friends to build pixel perfect masterpieces. Rome wasn't build in a day or alone, each person gets their own daily pixels to make an impact.
 
 [Go To Project](https://canvex.ajaytitus.com/)
