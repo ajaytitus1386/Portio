@@ -6,8 +6,8 @@ slug: svelte-screendle
 thumb: ../../images/thumbs/screendle.png
 images:
   [
-    ../../images/nextjs/screendle/screendle_1.png,
-    ../../images/nextjs/screendle/screendle_2.png,
+    ../../images/svelte/screendle/screendle_1.png,
+    ../../images/svelte/screendle/screendle_2.png,
   ]
 url: https://screendle.ajaytitus.com/
 priority: 1
