@@ -3,7 +3,7 @@ title: Screendle
 category: home
 stack: Svelte | Postgres | TailwindCSS
 slug: svelte-screendle
-thumb: ../../images/thumbs/screendle.png
+thumb: ../../images/thumbs/screendle_thumb.jpg
 images:
   [
     ../../images/svelte/screendle/screendle_1.png,
