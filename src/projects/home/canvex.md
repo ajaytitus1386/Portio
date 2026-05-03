@@ -3,7 +3,7 @@ title: Canvex
 category: home
 stack: ReactJS | Convex | PixiJS
 slug: reactjs-convex
-thumb: ../../images/thumbs/canvex.png
+thumb: ../../images/thumbs/canvex_thumb.jpg
 images:
   [
     ../../images/reactjs/canvex/canvex_1.jpg,
